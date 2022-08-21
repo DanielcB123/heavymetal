@@ -1,0 +1,13 @@
+{
+    "name": "PersonalTraining",
+    "alias": "personaltraining",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\PersonalTraining\\Providers\\PersonalTrainingServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

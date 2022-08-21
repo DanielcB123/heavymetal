@@ -1,0 +1,25 @@
+.landing-headers{
+    font-variant: small-caps;
+    font-weight: 400;
+    color: rgba(0, 217, 255, 0.6);
+    transition: all 0.5s ease;
+    background-color: rgba(240, 248, 255, 0);
+    /* background-color: rgba(0, 0, 0, 0); */
+    font-size: 1em;
+  }
+  .landing-headers:hover{
+    background-color: rgba(240, 248, 255, 0);
+    color: rgb(118, 216, 255);
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+  }
+  .landing-btn{
+    /* color: rgb(53, 49, 49); */
+    color: rgb(39, 39, 39);
+    
+  }
+  .landing-btn:hover{
+    color:rgb(0, 110, 129);
+  }
