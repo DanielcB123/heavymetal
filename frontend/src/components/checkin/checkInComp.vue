@@ -1,13 +1,15 @@
-<template>
-  <div class="">
-    <h1>This is the check in page</h1>
-        <li v-for="client in clients" v-bind:key="client.id" class="text-white">{{ client.name }} -- {{ client.email }} --{{ client.age }}</li>
-  </div>
-</template>
-
 <script setup>
 
-import {onMounted, computed} from 'vue'
+// import {ref} from 'vue';
+import {onMounted, computed, ref} from 'vue'
+
+const props = defineProps({
+    isOpened: Boolean
+});
+
+
+
+
 import axios from 'axios'
 
 import { ClientStore } from '../../stores/client/clientStore'
@@ -31,14 +33,28 @@ onMounted(() => {
   // });
 })
 
+
+
 </script>
 
-<style>
-@media (min-width: 1024px) {
-  .about {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+<template>
+<div class="dynamic-parent" >
+<h1>
+    CHECK IN COMPONENT
+</h1>
+        <li v-for="client in clients" v-bind:key="client.id" class="text-white">{{ client.name }} -- {{ client.email }} --{{ client.age }}</li>
+
+</div>
+</template>
+
+<script>
+export default {
+    name:'CheckiInComp'
+}
+</script>
+
+<style scoped>
+.dynamic-parent{
+    padding: 3rem;
 }
 </style>

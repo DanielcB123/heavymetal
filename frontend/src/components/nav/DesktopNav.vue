@@ -2,17 +2,26 @@
 <div class="nav">
     
     
-<header>
- <h1 class="logo" style="">
-  Your Gym Here
- </h1>
- <nav>
-  <button>Login</button>
-  <button>About</button>
-  <button>Contact</button>
- </nav>
- <!-- <button class="order-online">Order Online</button> -->
-</header>
+  <header class="">
+    <div class="out1">
+      <h1 class="logo in1" style="">
+        <!-- Your Gym Here -->
+        Your Gym Here
+      </h1>
+
+      <nav class="in2">
+        <div style="" class="nav-menu in2">
+          <div class="x">
+            <button class="y">Login</button>
+            <button class="y">About</button>
+            <button class="y">Contact</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+  <!-- <button class="order-online">Order Online</button> -->
+  </header>
 <div>
 <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
@@ -37,12 +46,63 @@ viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
 @import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap'); */
-body{
- /* margin: 0; */
+.test{
+  width: 30%;
+  background-color: brown;
+}
+.nav-menu{
+  margin-right: 0rem;
+  width: 150vh;
+  /* display: flex;
+  flex-wrap: wrap;
+  flex: flex-end; */
+  /* background-color: blueviolet; */
+
+}
+.nav{
+  
+  /* width: 100vw; */
+    position: fixed;
+    /* background-color: brown; */
+  
+}
+.out1{
+  /* background-color: blue; */
+  
+  padding-top: 1rem;
+  min-width: 90vw;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.in1{
+      display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  /* background-color: rgb(255, 0, 0); */
+  width: 20%;
+/* flex: */
+}.in2{
+
+  width: 30%;
+  /* background-color: rgb(60, 255, 0); */
+
+}
+.x{
+  margin-left: -65%;
+  margin-top: 10%;
+  /* background-color: aqua; */
+  width: 330%;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+.y{
+
 }
 header{
  position: fixed;
- height: 10%;
+ height: 6.5rem;
  padding-bottom: 2rem;
  width: 100%;
  top: 0;
@@ -54,6 +114,16 @@ header{
 }
 .logo{
  /* text-transform: uppercase; */
+ width: 75vh;
+ margin-left: 3%;
+ color: rgb(218, 218, 218);
+ font-size: 2.2em;
+  font-variant: small-caps
+}
+.logo2{
+ /* text-transform: uppercase; */
+ /* width: 75vh; */
+ margin-left: 0%;
  color: rgb(218, 218, 218);
  font-size: 2.2em;
   font-variant: small-caps
@@ -86,12 +156,12 @@ header nav button:hover{
  transform: rotate(180deg) scale(1, 0.2);
   position: fixed;
   width: 100%;
-  height:15vh;
+  height:10rem;
   margin-bottom:-7px; /*Fix for safari gap*/
   min-height:100px;
   max-height:150px;
- margin-top: 0%;
- background-color: rgb(15, 152, 206);
+ margin-top: 1%;
+ /* background-color: rgb(15, 152, 206); */
 }
 .parallax > use {
   animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
@@ -120,7 +190,5 @@ header nav button:hover{
     transform: translate3d(85px,0,0);
   }
 }
-.nav{
-    position: fixed;
-}
+
 </style>

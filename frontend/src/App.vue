@@ -2,6 +2,7 @@
 
   import { RouterLink, RouterView } from 'vue-router'
   import HelloWorld from './components/landing/HelloWorld.vue'
+  import TheLanding from './components/landing/TheLanding.vue'
 
 </script>
 
@@ -18,9 +19,15 @@
       </nav>
     </div>
   </header> -->
-
+  <div>
+    <!-- <div style="width:600px; background-color:">
+      <TheLanding />
+    </div>
+     -->
+    <RouterView />
+  </div>
   
-  <RouterView />
+  
   
   
 

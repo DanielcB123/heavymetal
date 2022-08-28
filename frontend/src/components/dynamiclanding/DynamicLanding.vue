@@ -1,5 +1,15 @@
+<script setup>
+
+import {ref} from 'vue';
+
+const props = defineProps({
+    isOpened: Boolean
+});
+
+</script>
+
 <template>
-<div class="dynamic-parent">
+<div class="dynamic-parent" >
 <h1>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Eget nullam non nisi est sit. Eu non diam phasellus vestibulum. Condimentum lacinia quis vel eros donec ac odio tempor. Elit sed vulputate mi sit amet mauris commodo quis imperdiet. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Venenatis a condimentum vitae sapien pellentesque. Nulla pharetra diam sit amet. Cursus metus aliquam eleifend mi in nulla. Ut morbi tincidunt augue interdum. Faucibus in ornare quam viverra. Amet cursus sit amet dictum sit amet justo. Convallis a cras semper auctor. In pellentesque massa placerat duis ultricies lacus sed turpis. Sed euismod nisi porta lorem mollis aliquam ut. Fusce id velit ut tortor pretium viverra suspendisse. Eu turpis egestas pretium aenean. Egestas sed tempus urna et pharetra.
 
@@ -23,6 +33,12 @@ Risus at ultrices mi tempus. Venenatis cras sed felis eget. Porta nibh venenatis
 </h1>
 </div>
 </template>
+
+<script>
+export default {
+    name:'DynamicLanding'
+}
+</script>
 
 <style scoped>
 .dynamic-parent{
