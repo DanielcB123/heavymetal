@@ -21,11 +21,16 @@ import AdminBtn from '../components/landing/buttons/AdminBtn.vue'
 
 const isOpened = ref(false);
 
+
+
+
+
 </script>
 
 <template>
   <main>
     <div class="nav">
+      
       <NavBar />
     </div>
 
@@ -211,11 +216,15 @@ const isOpened = ref(false);
 
         </div>
         <!-- <button @click="activeTab = 'CheckInComp'">Check In</button>
+        
         <button @click="activeTab = 'DynamicLanding'">Dynamic</button> -->
+
         <div class="column right" style="">
           <DynamicLanding v-if="activeTab === 'DynamicLanding'"/>
           <CheckInComp v-if="activeTab === 'CheckInComp'"/>
         </div>
+              <button type="button" class="btn btn-dark mt-2 z-20" style="margin-left: " @click="logout">Logout</button>
+
       </div>
     </div>
 
@@ -225,6 +234,12 @@ const isOpened = ref(false);
 </template>
 
 <script>
+// import { useRouter } from "vue-router"
+// import { useRouter } from 'vue-router';
+// import { useRouter } from 'vue-router';
+// const router = useRouter();
+import router from '../router/index';
+
 export default {
   name: 'Landing',
   components: {
@@ -238,6 +253,15 @@ export default {
       activeTab: CheckInComp
     }
   },
+  methods: {
+    
+    logout(){
+      
+      console.log('here');
+      localStorage.removeItem('token');
+      router.push({name: 'login'})
+    }
+  }
 }
 </script>
 

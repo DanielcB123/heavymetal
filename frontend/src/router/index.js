@@ -2,12 +2,19 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LandingView from '../views/LandingView.vue'
 import CheckInView from '../views/CheckIn/CheckInView.vue'
 import checkInComp from '../components/checkin/checkInComp.vue'
+import app from '../App.vue'
+import login from '../views/auth/login.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
+      name: 'app',
+      // component: app
+    },
+    {
+      path: '/landing',
       name: 'landingview',
       component: LandingView
     },
@@ -24,6 +31,11 @@ const router = createRouter({
       path: '/checkincomp',
       name: 'checkincomp',
       component: checkInComp
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: login
     }
   ]
 })

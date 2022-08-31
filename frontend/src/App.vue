@@ -24,6 +24,22 @@
       <TheLanding />
     </div>
      -->
+    <nav>
+      <ul class="navbar-nav">
+        <li>
+          <RouterLink class="text-white" to="login">Login</RouterLink>
+        </li>
+        <li>
+          <RouterLink class="text-white" to="register">Register</RouterLink>
+        </li>
+
+      </ul>
+
+      
+    </nav>
+
+
+
     <RouterView />
   </div>
   

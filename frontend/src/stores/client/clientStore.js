@@ -18,7 +18,7 @@ export const ClientStore = defineStore("client", {
                 console.log("test api array -> " , this.clients);
                 //  console.log("length", this.client.length);
                  axios
-                    .get('http://localhost:8000/api/client/client-search')
+                    .post('http://localhost:8000/api/client/client-search')
                     .then((result) => { 
                         this.clients = result.data;
                     })   
