@@ -18,15 +18,17 @@
 
 <script>
 
-import { reactive, ref } from 'vue'
-import { useRouter } from "vue-router";
+import { reactive, ref } from 'vue';
+// import { useRouter } from "vue-router";
+// import { useRouter } from 'vue-router';
+import  router  from '../../router';
 import axios from 'axios';
 
 
 
 
    export default {
-
+        
         setup(){
             let form = reactive({
                 email: '',
@@ -37,10 +39,9 @@ import axios from 'axios';
             const login = async() => {
                 await axios.post('http://localhost:8000/api/client/login', form).then(res => {
                     if(res.data.success){
+                        // const useRouter = router();
                         localStorage.setItem('token',res.data.data.token)
-                        // console.log('here')
-                        // const router = useRouter();
-                        // router.push({name: 'landing'})
+                        router.push('landing')
                     }else{
                         error.value = res.data.message;
                     }
@@ -53,6 +54,7 @@ import axios from 'axios';
                 error
             }
         }
+        
    }
 
 
