@@ -16,7 +16,10 @@ const router = createRouter({
     {
       path: '/landing',
       name: 'landingview',
-      component: LandingView
+      component: LandingView,
+      meta: {
+        requiresAuth:true
+      }
     },
     {
       path: '/checkin',
@@ -35,9 +38,22 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: login
-    }
+      component: login,
+      meta: {
+        requiresAuth:false
+      }
+    },
   ]
+})
+
+
+router.beforeEach((to, from) => {
+  if(to.meta.requiresAuth && !localStorage.getItem('token')){
+    return  {name:'login'}
+  }
+  if(to.meta.requiresAuth == false && localStorage.getItem('token')){
+    return { name: 'landingview' }
+  }
 })
 
 export default router
