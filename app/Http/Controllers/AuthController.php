@@ -29,7 +29,8 @@ class AuthController extends Controller
 
     public function register(Request $request){
         $validator = Validator::make($request->all(),[
-            'name' => 'required',
+            'firstName' => 'required',
+            'lastName' => 'required',
             'email' => 'required|email',
             'password' => 'required',
             'c_password' => 'required|same:password'
@@ -56,7 +57,7 @@ class AuthController extends Controller
             'message' => 'User registered successfully'
         ];
 
-        return response()->json($response, 400);
+        return response()->json($response, 200);
 
     }
 

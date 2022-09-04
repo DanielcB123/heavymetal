@@ -4,6 +4,8 @@ import CheckInView from '../views/CheckIn/CheckInView.vue'
 import checkInComp from '../components/checkin/checkInComp.vue'
 import app from '../App.vue'
 import login from '../views/auth/login.vue'
+import register from '../views/auth/register.vue'
+import start from '../views/Start.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -11,7 +13,10 @@ const router = createRouter({
     {
       path: '/',
       name: 'app',
-      // component: app
+      component: start,
+      meta: {
+        requiresAuth:false
+      }
     },
     {
       path: '/landing',
@@ -39,6 +44,22 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: login,
+      meta: {
+        requiresAuth:false
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: register,
+      meta: {
+        requiresAuth:false
+      }
+    },
+    {
+      path: '/start',
+      name: 'start',
+      component: start,
       meta: {
         requiresAuth:false
       }

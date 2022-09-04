@@ -3,7 +3,7 @@
 <template>
     <div>
         <form @submit.prevent="login">
-            {{form}}
+            <!-- {{form}} -->
             <h3>Login</h3>
             <!-- <p v-if="loading">loading...</p> -->
             <p v-if="error" style="color:red">{{error}}</p>
@@ -11,13 +11,14 @@
             <input type="password" placeholder="Password" id="password" v-model="form.password"><br/>
             <button type="submit">Login</button>
         </form>
+    <RouterLink class="text-white" to="register">Register</RouterLink>
     </div>
 </template>
 
 
 
 <script>
-
+import { RouterLink } from 'vue-router'
 import { reactive, ref } from 'vue';
 // import { useRouter } from "vue-router";
 // import { useRouter } from 'vue-router';

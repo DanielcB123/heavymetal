@@ -1,8 +1,8 @@
 <script setup>
 
   import { RouterLink, RouterView } from 'vue-router'
-  import HelloWorld from './components/landing/HelloWorld.vue'
-  import TheLanding from './components/landing/TheLanding.vue'
+//   import HelloWorld from './components/landing/HelloWorld.vue'
+//   import TheLanding from './components/landing/TheLanding.vue'
 
 </script>
 
@@ -24,19 +24,19 @@
       <TheLanding />
     </div>
      -->
-    <!-- <nav>
-      <ul class="navbar-nav" style="position: fixed; z-index: 0">
-        <li>
-          <RouterLink class="text-white" to="login">Login</RouterLink>
-        </li>
-        <li>
+    <nav>
+      <!-- <ul class="" style=""> -->
+        <!-- <li> -->
+          <RouterLink class="text-white" to="login">Login</RouterLink><br/>
+        <!-- </li> -->
+        <!-- <li> -->
           <RouterLink class="text-white" to="register">Register</RouterLink>
-        </li>
+        <!-- </li> -->
 
-      </ul>
+      <!-- </ul> -->
 
       
-    </nav> -->
+    </nav>
 
 
 
@@ -52,15 +52,6 @@
 
 <style scoped>
 
-/* .out{
-  margin-left: -25rem;
-  width: 100%;
-  display: flex;
-}
-.in{
-  display: flex;
-  justify-content: space-between;
-} */
 
 </style>
 
