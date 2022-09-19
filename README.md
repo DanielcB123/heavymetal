@@ -5,10 +5,5 @@ to clone repo.
     - npm install & npm run dev
 
 create .env file and inside add to DB
-    DB_CONNECTION=mysql
-    DB_HOST=127.0.0.1
-    DB_PORT=3307
-    DB_DATABASE=heavymetal
-    DB_USERNAME=root
-    DB_PASSWORD=
+    - create .env file in root and copy all from .env.example and past in .env
 
