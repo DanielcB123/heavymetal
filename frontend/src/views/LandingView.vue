@@ -1,6 +1,5 @@
-<script setup>
-import TheLanding from '@/components/landing/TheLanding.vue'
-import DynamicLanding from './../components/dynamiclanding/DynamicLanding.vue'
+<script>
+import ClientSearch from '../components/clientSearch/clientSearchComp.vue'
 import CheckInComp  from './../components/checkin/checkInComp.vue'
 import NavBar from './../components/nav/DesktopNav.vue'
 import {ref} from 'vue';
@@ -8,20 +7,20 @@ import {ref} from 'vue';
 
 
 // import WelcomeItem from './WelcomeItem.vue'
-import WelcomeItem from '../components/landing/WelcomeItem.vue'
-import CheckInBtn from '../components/landing/buttons/CheckInBtn.vue'
-import ClientSearchBtn from '../components/landing/buttons/ClientSearchBtn.vue'
-import PersonalTrainingBtn from '../components/landing/buttons/PersonalTrainingBtn.vue'
-import ClassesBtn from '../components/landing/buttons/ClassesBtn.vue'
-import StoreBtn from '../components/landing/buttons/StoreBtn.vue'
-import AdminBtn from '../components/landing/buttons/AdminBtn.vue'
+import WelcomeItem from '../components/sideBar/sideBarItem.vue'
+import CheckInBtn from '../components/sideBar/buttons/CheckInBtn.vue'
+import ClientSearchBtn from '../components/sideBar/buttons/ClientSearchBtn.vue'
+import PersonalTrainingBtn from '../components/sideBar/buttons/PersonalTrainingBtn.vue'
+import ClassesBtn from '../components/sideBar/buttons/ClassesBtn.vue'
+import StoreBtn from '../components/sideBar/buttons/StoreBtn.vue'
+import AdminBtn from '../components/sideBar/buttons/AdminBtn.vue'
 
 
 
 
 const isOpened = ref(false);
-
-
+const showModal = ref(false);
+const open = ref(false);
 
 
 
@@ -40,17 +39,61 @@ const isOpened = ref(false);
           <!-- <TheLanding /> -->
 
 
-
-
-
-
-
-
-
-
   <div id="landing">
-    
-    <div class="sidemenu">
+   
+    <!-- <div v-if="!isMobile()" class="sidemenu"> -->
+      <div class="sidemenu">
+
+<!-- <button @click="open = true">Open Modal</button> -->
+
+<!-- <Teleport to=".modals-target"> -->
+  <Teleport to="body">
+
+
+
+
+  <div v-if="open" class="flex justify-center fixed z-50 bg-opacity-70 bg-neutral-900 p-5 text-blue-500 w-100 h-full -mt-7">
+    <div class="w-1/3 h-1/3 bg-gradient-to-tr from-neutral-700 to-neutral-800 opacity-90 my-auto rounded-sm p-2">
+      <div class="bg-gradient-to-tr from-neutral-600 to-neutral-700 bg-opacity-100 px-2 pb-5 pt-3 h-full">
+        <div class="w-full mb-4 md:mr-2 md:mb-0">
+            <label class="flex justify-center block mb-2 text-sm font-bold text-gray-100 text-xl pb-4" for="firstName">
+              Client Search {{ "   " + type + ": " + width }}
+            </label>
+
+            <div class="-mt-5">
+              <label for="" class="flex justify-end text-white pr-16">Search By</label>
+
+              <div class="flex flex-wrap justify-center">
+                                  <input
+                class="w-7/12 px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+                id="firstName"
+                type="text"
+                placeholder="First Name"
+              />
+
+              <select id="countries" class="mx-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-3/12 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option value="US">Last Name</option>
+                <option value="CA">Phone Number</option>
+                <option value="FR">Street Address</option>
+                <option value="DE">Client Number</option>
+              </select>
+              </div>
+            </div>
+          </div>
+
+        <div class="flex justify-center">
+            <button @click="clientSearch" class="bg-blue-500 rounded-md py-2 px-3 text-white mx-2">Search</button>
+            <button @click="open = false;activeTab = 'ClientSearch'" class="bg-gray-500 rounded-md py-2 px-3 text-white mx-2">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+</Teleport>
+
+
+
       <WelcomeItem>
           <template #icon>
               <!-- <CheckInBtn /> -->
@@ -78,14 +121,15 @@ const isOpened = ref(false);
 
       <WelcomeItem>
         <template #icon>
-          <!-- <ClientSearchBtn /> -->
-            <div @click="activeTab = 'DynamicLanding'" class="mb-1">
+            <!-- <div @click="activeTab = 'ClientSearch'" class="mb-1"> -->
+            <div @click="open = true" class="mb-1">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                   <path d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z"/>
                 </svg>
               </svg>
             </div>
+
         </template>
         <template #heading>
           
@@ -217,10 +261,10 @@ const isOpened = ref(false);
         </div>
         <!-- <button @click="activeTab = 'CheckInComp'">Check In</button>
         
-        <button @click="activeTab = 'DynamicLanding'">Dynamic</button> -->
+        <button @click="activeTab = 'ClientSearch'">Dynamic</button> -->
 
         <div class="column right" style="">
-          <DynamicLanding v-if="activeTab === 'DynamicLanding'"/>
+          <ClientSearch v-if="activeTab === 'ClientSearch'"/>
           <CheckInComp v-if="activeTab === 'CheckInComp'"/>
         </div>
               <button type="button" class="btn btn-dark mt-2 z-20" style="margin-left: " @click="logout">Logout</button>
@@ -233,43 +277,75 @@ const isOpened = ref(false);
   </main>
 </template>
 
-<script>
-// import { useRouter } from "vue-router"
-// import { useRouter } from 'vue-router';
-// import { useRouter } from 'vue-router';
-// const router = useRouter();
+<script setup>
+import { computed, onMounted, onUnmounted, ref } from "vue"
 import router from '../router/index';
+const activeTab = ref('');
+const showModal = ref(false);
 
-export default {
-  name: 'Landing',
-  components: {
-    NavBar,
-    DynamicLanding,
-    CheckInComp
 
-  },
-  data(){
-    return{
-      activeTab: CheckInComp
-    }
-  },
-  methods: {
-    
-    logout(){
-      
-      console.log('here');
-      localStorage.removeItem('token');
-      router.push({name: 'app'})
-    }
-  }
+// Ended here on 9/28/22. Last was trying to make responsive. Changes around 1025px wide. Looking into base.css & main.css
+//
+// Making media queries to make app responsive  **************************************************************************
+function useBreakpoints() {
+  let windowWidth = ref(window.innerWidth)
+
+  const onWidthChange = () => windowWidth.value = window.innerWidth
+  onMounted(() => window.addEventListener('resize', onWidthChange))
+  onUnmounted(() => window.removeEventListener('resize', onWidthChange))
+
+  const type = computed(() => {
+    if (windowWidth.value < 550) return 'xs'
+    if (windowWidth.value >= 550 && windowWidth.value < 1200) return 'md'
+    if (windowWidth.value >= 1200) return 'lg'
+    return null; // This is an unreachable line, simply to keep eslint happy.
+  })
+
+  const width = computed(() => windowWidth.value)
+
+  return { width, type }
 }
+
+const { width, type } = useBreakpoints()
+
+//************************************************************************************************************************* 
+
+
+
+
+
+
+
+
+
+
+
+
+function clientSearch(){
+  console.log(type + " " + width);
+}
+
+function isMobile() {
+   if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+     return true
+   } else {
+     return false
+   }
+ }
+    
+function logout(){
+  
+  console.log('here');
+  localStorage.removeItem('token');
+  router.push({name: 'app'});
+}
+
+
 </script>
 
 
 <style scoped>
-.out{
-  /* scroll-behavior: smooth; */
-}
+
 #signature{
   position: absolute;
   height: 0vh;

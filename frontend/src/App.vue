@@ -1,8 +1,7 @@
 <script setup>
 
   import { RouterLink, RouterView } from 'vue-router'
-  import HelloWorld from './components/landing/HelloWorld.vue'
-  import TheLanding from './components/landing/TheLanding.vue'
+
 
 </script>
 
