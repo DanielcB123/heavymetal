@@ -1,7 +1,8 @@
 <script>
 import ClientSearch from '../components/clientSearch/clientSearchComp.vue'
 import CheckInComp  from './../components/checkin/checkInComp.vue'
-import NavBar from './../components/nav/DesktopNav.vue'
+// import NavBar from './../components/nav/DesktopNav.vue'
+import NavBar from './../components/nav/reponsiveNav.vue'
 import {ref} from 'vue';
 
 
@@ -28,7 +29,7 @@ const open = ref(false);
 
 <template>
   <main>
-    <div class="nav">
+    <div class="">
       
       <NavBar />
     </div>
@@ -53,9 +54,10 @@ const open = ref(false);
 
 
   <div v-if="open" class="flex justify-center fixed z-50 bg-opacity-70 bg-neutral-900 p-5 text-blue-500 w-100 h-full -mt-7">
-    <div class="w-1/3 h-1/3 bg-gradient-to-tr from-neutral-700 to-neutral-800 opacity-90 my-auto rounded-sm p-2">
-      <div class="bg-gradient-to-tr from-neutral-600 to-neutral-700 bg-opacity-100 px-2 pb-5 pt-3 h-full">
-        <div class="w-full mb-4 md:mr-2 md:mb-0">
+    <div class="w-1/3 h-1/3 bg-gradient-to-tr from-neutral-700 to-neutral-800 opacity-90 my-auto rounded-sm p-1.5">
+    <!-- <img src="@/assets/images/dumbells1.jpg"/> -->
+      <div class="bg-gradient-to-tr from-neutral-600 to-neutral-700 bg-opacity-100 px-2 pb-5 pt-3 h-full dumbells1"> 
+        <div class="w-full mb-4 md:mr-2 md:mb-0 dumbells1-position">
             <label class="flex justify-center block mb-2 text-sm font-bold text-gray-100 text-xl pb-4" for="firstName">
               Client Search {{ "   " + type + ": " + width }}
             </label>
@@ -97,9 +99,9 @@ const open = ref(false);
       <WelcomeItem>
           <template #icon>
               <!-- <CheckInBtn /> -->
-              <div @click="activeTab = 'CheckInComp'">
+              <div @click="activeTab = 'CheckInComp'" class="">
               <div class="landing-btn cust-alignment mb-2">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" fill="currentColor">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" fill="currentColor" class="responsive-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                       <path d="M274.7 304H173.3C77.61 304 0 381.6 0 477.3C0 496.5 15.52 512 34.66 512H413.3C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304zM224 256c70.7 0 128-57.31 128-128S294.7 0 224 0C153.3 0 96 57.31 96 128S153.3 256 224 256zM632.3 134.4c-9.703-9-24.91-8.453-33.92 1.266l-87.05 93.75l-38.39-38.39c-9.375-9.375-24.56-9.375-33.94 0s-9.375 24.56 0 33.94l56 56C499.5 285.5 505.6 288 512 288h.4375c6.531-.125 12.72-2.891 17.16-7.672l104-112C642.6 158.6 642 143.4 632.3 134.4z"/>
                     </svg>
@@ -113,17 +115,20 @@ const open = ref(false);
           <RouterLink to="/checkin" class="landing-headers">Check In</RouterLink>
         </template>
         
+        <div class="hidden md:block">
+          Use for checking clients in, customer sign up and service, 
+          <a target="_blank" href="https://vuejs.org/">check in</a>
+          provides you with all information you need to get started.
+        </div>
 
-        Use for checking clients in, customer sign up and service, 
-        <a target="_blank" href="https://vuejs.org/">check in</a>
-        provides you with all information you need to get started.
+        
       </WelcomeItem>
 
       <WelcomeItem>
         <template #icon>
             <!-- <div @click="activeTab = 'ClientSearch'" class="mb-1"> -->
             <div @click="open = true" class="mb-1">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="responsive-btn">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
                   <path d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z"/>
                 </svg>
@@ -137,20 +142,20 @@ const open = ref(false);
           <RouterLink to="/client-search" class="landing-headers">Client Search</RouterLink>
         </template>
         
+        <div class="hidden md:block">
+          This project is served and bundled with
+          <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite</a>. The recommended IDE
+          setup is <a href="https://code.visualstudio.com/" target="_blank">VSCode</a> +
+          <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>. If you need to test
+          your components and web pages, check out
+          <a href="https://www.cypress.io/" target="_blank">Cypress</a> and
+          <a href="https://on.cypress.io/component" target="_blank"
+            >Cypress Component Testing</a
+          >.
+          <br />
+          More instructions are available in <code>README.md</code>.
+        </div>
 
-        This project is served and bundled with
-        <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite</a>. The recommended IDE
-        setup is <a href="https://code.visualstudio.com/" target="_blank">VSCode</a> +
-        <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>. If you need to test
-        your components and web pages, check out
-        <a href="https://www.cypress.io/" target="_blank">Cypress</a> and
-        <a href="https://on.cypress.io/component" target="_blank"
-          >Cypress Component Testing</a
-        >.
-
-        <br />
-
-        More instructions are available in <code>README.md</code>.
       </WelcomeItem>
 
       <WelcomeItem>
@@ -161,14 +166,17 @@ const open = ref(false);
           <RouterLink to="/personal-training" class="landing-headers">Personal Training</RouterLink>
         </template>
 
-        Get official tools and libraries for your project:
-        <a target="_blank" href="https://pinia.vuejs.org/">Pinia</a>,
-        <a target="_blank" href="https://router.vuejs.org/">Vue Router</a>,
-        <a target="_blank" href="https://test-utils.vuejs.org/">Vue Test Utils</a>, and
-        <a target="_blank" href="https://github.com/vuejs/devtools">Vue Dev Tools</a>. If you need more
-        resources, we suggest paying
-        <a target="_blank" href="https://github.com/vuejs/awesome-vue">Awesome Vue</a>
-        a visit.
+        <div class="hidden md:block">
+          Get official tools and libraries for your project:
+          <a target="_blank" href="https://pinia.vuejs.org/">Pinia</a>,
+          <a target="_blank" href="https://router.vuejs.org/">Vue Router</a>,
+          <a target="_blank" href="https://test-utils.vuejs.org/">Vue Test Utils</a>, and
+          <a target="_blank" href="https://github.com/vuejs/devtools">Vue Dev Tools</a>. If you need more
+          resources, we suggest paying
+          <a target="_blank" href="https://github.com/vuejs/awesome-vue">Awesome Vue</a>
+          a visit.
+        </div>
+
       </WelcomeItem>
 
       <WelcomeItem>
@@ -179,13 +187,16 @@ const open = ref(false);
           <RouterLink to="/classes" class="landing-headers">Classes</RouterLink>
         </template>
 
-        Got stuck? Ask your question on
-        <a target="_blank" href="https://chat.vuejs.org">Vue Land</a>, our official Discord server, or
-        <a target="_blank" href="https://stackoverflow.com/questions/tagged/vue.js">StackOverflow</a>.
-        You should also subscribe to
-        <a target="_blank" href="https://news.vuejs.org">our mailing list</a> and follow the official
-        <a target="_blank" href="https://twitter.com/vuejs">@vuejs</a>
-        twitter account for latest news in the Vue world.
+        <div class="hidden md:block">
+          Got stuck? Ask your question on
+          <a target="_blank" href="https://chat.vuejs.org">Vue Land</a>, our official Discord server, or
+          <a target="_blank" href="https://stackoverflow.com/questions/tagged/vue.js">StackOverflow</a>.
+          You should also subscribe to
+          <a target="_blank" href="https://news.vuejs.org">our mailing list</a> and follow the official
+          <a target="_blank" href="https://twitter.com/vuejs">@vuejs</a>
+          twitter account for latest news in the Vue world.
+        </div>
+
       </WelcomeItem>
 
       <WelcomeItem>
@@ -196,9 +207,12 @@ const open = ref(false);
           <RouterLink to="/store" class="landing-headers">Store</RouterLink>
         </template>
 
-        As an independent project, Vue relies on community backing for its sustainability. You can help
-        us by
-        <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
+        <div class="hidden md:block">
+          As an independent project, Vue relies on community backing for its sustainability. You can help
+          us by
+          <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
+        </div>
+
       </WelcomeItem>
 
 
@@ -224,9 +238,12 @@ const open = ref(false);
           <RouterLink to="/admin" class="landing-headers">Calendar</RouterLink>
         </template>
 
-        As an independent project, Vue relies on community backing for its sustainability. You can help
-        us by
-        <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
+        <div class="hidden md:block">
+          As an independent project, Vue relies on community backing for its sustainability. You can help
+          us by
+          <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
+        </div>
+
       </WelcomeItem>
 
 
@@ -240,9 +257,12 @@ const open = ref(false);
           <RouterLink to="/admin" class="landing-headers">Admin</RouterLink>
         </template>
 
-        As an independent project, Vue relies on community backing for its sustainability. You can help
-        us by
-        <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
+        <div class="hidden md:block">
+          As an independent project, Vue relies on community backing for its sustainability. You can help
+          us by
+          <a target="_blank" href="https://vuejs.org/sponsor/">becoming a sponsor</a>.
+        </div>
+        
       </WelcomeItem>
     </div>
     <h1 class="company_name">Heavy Metal&copy;</h1>
@@ -267,7 +287,7 @@ const open = ref(false);
           <ClientSearch v-if="activeTab === 'ClientSearch'"/>
           <CheckInComp v-if="activeTab === 'CheckInComp'"/>
         </div>
-              <button type="button" class="btn btn-dark mt-2 z-20" style="margin-left: " @click="logout">Logout</button>
+              <!-- <button type="button" class="btn btn-dark mt-2 z-20" style="margin-left: " @click="logout">Logout</button> -->
 
       </div>
     </div>
@@ -417,9 +437,7 @@ function logout(){
 
 
 @media screen and (min-width: 500px) {
-  .nav {
-    /* background-color: lightgreen; */
-  }
+
 }
 
 @media screen and (min-width: 2200px) {
@@ -427,9 +445,11 @@ function logout(){
     background-color: lavender;
     width: 99.5vw;
   }
+
 }
 
 /* =====================================for sidebar=================================== */
+@media screen and (max-width: 2200px) {
   #landing{
     /* height: 90vh; */
     width: 100%;
@@ -475,6 +495,74 @@ function logout(){
     margin-right: .2rem;
     margin-bottom: .2rem;
   }
+}
+@media screen and (max-width: 1024px) {
+  #landing{
+    width: 100%;
+    margin-left: 3%;
+    padding-top: 45%;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  #landing::-webkit-scrollbar {
+    display: none; 
+  }
+
+
+}
+@media screen and (max-width: 650px){
+  .left {
+  /* position: fixed; */
+  /* background-color: blue; */
+  padding-top: 5%;
+  height: 85vh;
+  margin-left: -2%;
+  padding-left: 0%;
+  display: flex;
+      /* -ms-overflow-style: none; */
+    /* scrollbar-width: none; */
+    /* overflow-y: auto; */
+  /* flex-wrap: wrap; */
+  /* justify-content: flex-end; */
+  width: 35%;
+  /* flex: 30%; */
+  /* background-color: rgba(0, 0, 255, 0.432); */
+  }
+  .landing-headers{
+    visibility: hidden;
+  }
+  .responsive-btn{
+
+    width: .9rem;
+    /* color: blue; */
+    /* font-size: 1rem;
+    margin-left: 35%;
+    width: 5rem; */
+  }
+}
+
+.dumbells1{
+position: relative;
+}
+.dumbells1:before{
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 5%;
+  background-image: url('@/assets/images/dumbells1.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+.dumbells1-position{
+  position: relative;
+}
   /* =====================================for sidebar=================================== */
 
 </style>
