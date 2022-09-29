@@ -54,7 +54,7 @@ const open = ref(false);
 
 
   <div v-if="open" class="flex justify-center fixed z-50 bg-opacity-70 bg-neutral-900 p-5 text-blue-500 w-100 h-full -mt-7">
-    <div class="w-1/3 h-1/3 bg-gradient-to-tr from-neutral-700 to-neutral-800 opacity-90 my-auto rounded-sm p-1.5">
+    <div class="w-1/3 h-1/3 bg-gradient-to-tr from-neutral-700 to-neutral-800 opacity-90 my-auto rounded-sm p-1.5 modal-cover">
     <!-- <img src="@/assets/images/dumbells1.jpg"/> -->
       <div class="bg-gradient-to-tr from-neutral-600 to-neutral-700 bg-opacity-100 px-2 pb-5 pt-3 h-full dumbells1"> 
         <div class="w-full mb-4 md:mr-2 md:mb-0 dumbells1-position">
@@ -365,7 +365,12 @@ function logout(){
 
 
 <style scoped>
-
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px;
+}
 #signature{
   position: absolute;
   height: 0vh;
@@ -434,7 +439,27 @@ function logout(){
   display: flex;
   flex: wrap;
 }
-
+.dumbells1{
+position: relative;
+/* width: 400px; */
+}
+.dumbells1:before{
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 5%;
+  background-image: url('@/assets/images/dumbells1.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+.dumbells1-position{
+  position: relative;
+}
 
 @media screen and (min-width: 500px) {
 
@@ -541,10 +566,13 @@ function logout(){
     margin-left: 35%;
     width: 5rem; */
   }
+.modal-cover{
+  width: 410px;
 }
-
 .dumbells1{
 position: relative;
+width: 300px;
+/* margin-left: -3rem; */
 }
 .dumbells1:before{
   content: ' ';
@@ -563,6 +591,16 @@ position: relative;
 .dumbells1-position{
   position: relative;
 }
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px;
+    font-size: .7rem;
+}
+}
+
+
   /* =====================================for sidebar=================================== */
 
 </style>

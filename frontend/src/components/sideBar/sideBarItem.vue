@@ -73,7 +73,7 @@ h3 {
 #icon{
   padding-top: 10%;
   transition: all 0.5s ease;
-  
+
 
 }
 #icon:hover{
@@ -145,8 +145,8 @@ h3 {
   #docIcon{
     z-index: 1;
     border-radius: 8px;
-    background-color: rgb(245, 20, 4);
-    /* background-color: rgb(172, 231, 255); */
+    /* background-color: rgb(245, 20, 4); */
+    background-color: rgb(172, 231, 255);
     width: 40px;
     height: 40px;
     position: relative;
