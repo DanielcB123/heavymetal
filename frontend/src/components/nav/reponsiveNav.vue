@@ -59,11 +59,11 @@
           md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0
         "
       >
-        <li class="text-gray-100 hover:text-indigo-400">Home</li>
-        <li class="text-gray-100 hover:text-indigo-400">About</li>
-        <li class="text-gray-100 hover:text-indigo-400">Blogs</li>
-        <li class="text-gray-100 hover:text-indigo-400">Contact Us</li>
-        <li class="text-gray-100 hover:text-indigo-400"  @click="logout">Logout</li>
+        <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Home</li>
+        <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">About</li>
+        <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Blogs</li>
+        <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Contact Us</li>
+        <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer"  @click="logout">Logout</li>
       </ul>
 
 
@@ -115,7 +115,7 @@ import router from '../../router/index';
     function logout(){
     console.log('here');
     localStorage.removeItem('token');
-    router.push({name: 'app'});
+    router.push({name: 'start'});
     }
 
 
