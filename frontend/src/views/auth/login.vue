@@ -4,14 +4,13 @@
 
   <div class="w-screen h-screen flex start-background-animation">
 
-<div class="mt-12 h-1/6 w-100 fixed flex justify-center text-4xl md:text-6xl">
-    <h3 class="animate-charcter"> HEAVY METAL</h3>
-</div>
+    <div class="mt-12 h-1/6 w-100 fixed flex justify-center text-4xl md:text-6xl">
+        <h3 class="animate-charcter"> HEAVY METAL</h3>
+    </div>
       
 
 
     <div class="w-5/6 sm:w-1/3 sm:h-5/12 m-auto rounded-sm bg-slate-400 p-3 ">
-      <!-- <div class=""> -->
         <form @submit.prevent="login" class="align-center bg-slate-300">
             <h3 class="flex justify-center bg-slate-300 p-2 text-white text-2xl">Login</h3>
 
@@ -27,8 +26,7 @@
             
 
         </form>
-    <RouterLink class="text-white" to="register">Register</RouterLink>
-      <!-- </div> -->
+        <RouterLink class="text-white" to="register">Register</RouterLink>
     </div>
   </div>
 
