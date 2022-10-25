@@ -1,25 +1,8 @@
 <template>
-	<div class="big-container">
-		<!-- <div class="container"> -->
-			<!-- <header>
-				<div class="logo">
-					<h1>Earth</h1>
-				</div>
-				<nav>
-					<ul>
-						<li><a href="#">Home</a></li>
-						<li><a href="#">About</a></li>
-						<li><a href="#">Contact</a></li>
-						<li><a href="#">Blog</a></li>
-						<li><a href="#" class="active">Get Started</a></li>
-					</ul>
-					<form action="">
-						<input type="text" name="srch" id="srch"
-						required placeholder="Enter your search">
-						<button type="submit"></button>
-					</form>
-				</nav>
-			</header> -->
+
+	<div class="w-screen h-screen flex flex-col my-box-shadow">
+
+
 		<div class="video-wrapper">
 			<video playsinline autoplay muted loop poster="@/assets/videos/Metal.mp4" id="bgVideo">
 				<source src="@/assets/videos/Metal.mp4" type="video/mp4">
@@ -68,10 +51,27 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<!-- NAVIGATION -->
-		
+
 		<div class="flex justify-wrap top-shadow">
-			
 			<div class="w-full flex justify-end pr-20">
 				<span class="w-full h-20 flex justify-between items-center nav">
 
@@ -124,46 +124,26 @@
 
 
 
-		<div class="w-full h-1/2 mt-auto flex justify-center footer">
+		<div class="w-full h-1/2 mt-auto flex justify-center footer pb-0">
 			<div class="flex mt-auto justify-between p-5">
 				<RouterLink class="rounded-full text-white px-5 py-2 mx-5 join-btn" to="#">JOIN</RouterLink>
 				<RouterLink class="rounded-full text-white px-5 py-2 mx-5 watch-video-btn" to="#">WATCH FULL VIDEO </RouterLink>
 				<RouterView />
 			</div>
+			
 		</div>
 	<p class="text-white fixed bottom-2 left-1 opacity-20 text-xs font-thin">Created By Daniel Burgess</p>
 		<div class="hm-logo"></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<!-- </div> -->
-
-
-
-
-			<!-- <video playsinline autoplay muted loop poster="@/assets/videos/Metal.mp4" id="">
-				<source src="@/assets/videos/Metal.mp4" type="video/mp4">
-				Your browser does not support the video tag.
-			</video> -->
+		
 	</div>
+
+
+
+
+
+
+
+
 </template>
 
 <script>
@@ -207,6 +187,7 @@ import axios from 'axios';
 </script>
 
 <script setup>
+
 import { ref, onMounted, reactive } from 'vue'
 import { RouterLink, RouterView } from 'vue-router'
 import StartAbout from '../components/start/StartAbout.vue'
@@ -237,6 +218,9 @@ const login = async() => {
 		}
 	});
 }
+
+
+
 </script>
 
 <style scoped>
@@ -244,39 +228,6 @@ const login = async() => {
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@1,100&family=Orbitron&family=Rubik+Dirt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@1,100&family=Montserrat:wght@100;200&family=Orbitron&family=Rubik+Dirt&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@1,100&family=Montserrat:wght@100;200&family=Orbitron&family=Raleway:wght@300&family=Rubik+Dirt&display=swap');
-
-.big-container{
-	width: 100vw;
-	height: 100vh;
-	max-width: 1800px;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	overflow: hidden;
-	border-radius: 0px;
-	box-shadow: 0 0 20px #000;
-}
-.container{
-	width: 100vw;
-	height: 100%;
-	overflow: auto;
-}
-::-webkit-scrollbar{
-	display: none;
-}
-video{
-	/* width: 100vw; */
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	display: block;
-	object-fit: cover;
-	z-index: -1;
-}
-/* =============================================================================== */
 .body-text{
 font-family: 'Inter Tight', sans-serif;
 font-family: 'Montserrat', sans-serif;
@@ -285,9 +236,7 @@ font-family: 'Montserrat', sans-serif;
 
 
 .top-shadow{
-	/* width: 100vw; */
 	background-image: linear-gradient(rgba(0, 0, 0, 0.50),rgba(0, 0, 0, 0));
-	
 }
 
 .body-header-text{
@@ -317,7 +266,6 @@ font-family: 'Raleway', sans-serif;
   background-repeat: no-repeat;
   background-position: 50% 0;
   background-size: cover;
-  
 }
 
 .hm-font{
@@ -334,7 +282,6 @@ font-family: 'Raleway', sans-serif;
 	-moz-transition: border-bottom.25s ease-out;
 	-o-transition: border-bottom .25s ease-out;
 	transition: border-bottom .25s ease-out;	
-	
 }
 .nav:hover{	
 	width: 80%;
@@ -353,17 +300,16 @@ font-family: 'Raleway', sans-serif;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	
 }
+
+
+
+
 
 .footer{
 	/* box-shadow: 0 -40px 40px -2rem rgba(0, 0, 0, 0.90); */
-	/* height: 10rem; */
-	position: absolute;
-	bottom: 0;
+	height: 10rem;
 	background-image: linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0));
-	/* background: rgb(119, 6, 6); */
-	
 }
 .join-btn{
 	border: 2px solid;
@@ -384,4 +330,22 @@ font-family: 'Raleway', sans-serif;
 	background-color: rgba(255, 255, 255, 0.2);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </style>
+
