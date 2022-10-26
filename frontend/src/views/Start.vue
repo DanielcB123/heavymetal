@@ -52,7 +52,7 @@
 
 			<div class="w-full flex justify-center bg-slate-500 bg-opacity-80">
 				<button @click="login" type="submit" class="w-1/5 rounded-md p-2 mb-2 bg-blue-400 hover:bg-blue-500 duration-100 text-white mr-5">Login</button>
-				<button @click="open = false" type="submit" class="w-1/5 rounded-md p-2 mb-2 bg-gray-400 hover:bg-gray-500 duration-100 text-white">Cancel</button>
+				<button @click="open = false ; clearInput()" type="submit" class="w-1/5 rounded-md p-2 mb-2 bg-gray-400 hover:bg-gray-500 duration-100 text-white">Cancel</button>
 
 			</div>
 			
@@ -215,16 +215,25 @@ onMounted(() => {
   console.log(activeTab);
 })
 
-
+// Need to clear input on error 10/26/22. Not dont yet!
 const login = async() => {
 	await axios.post('http://localhost:8000/api/client/login', form).then(res => {
 		if(res.data.success){
 			localStorage.setItem('token',res.data.data.token)
 			router.push('landing')
+
 		}else{
 			error.value = res.data.message;
+			// console.log("here");
+			clearInput();
 		}
 	});
+	clearInput();
+}
+
+function clearInput(){
+	this.form.email = "";
+	this.form.password = "";
 }
 </script>
 
