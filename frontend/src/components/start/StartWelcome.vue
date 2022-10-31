@@ -2,7 +2,7 @@
 <div class="w-screen h-screen flex flex-col my-box-shadow">
 		<div class="w-full flex justify-center mt-64">
 			<!-- <div class="w-full h-full flex"> -->
-			<h1 class="text-white text-5xl body-header-text my-box-shadow">Crush Your Inconveniences.&ensp;Power Your Future.</h1>
+			<h1 class="w-screen flex justify-center text-white text-5xl body-header-text my-box-shadow">Crush Your Inconveniences.&ensp;Power Your Future.</h1>
 		</div>
 
 		<div class="flex justify-center bg-green-500 mt-96">

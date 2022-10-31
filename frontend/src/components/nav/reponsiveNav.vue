@@ -107,7 +107,6 @@ import router from '../../router/index';
 */
 
     function hamburger(){
-        console.log("fuck");
         document.getElementById('nav-icon4').classList.toggle('open');
     }
     
@@ -142,13 +141,10 @@ import router from '../../router/index';
 
 
 #nav-icon1, #nav-icon2, #nav-icon3, #nav-icon4 {
-  /* width: 60px;
-  height: 45px; */
   width: 60px;
   height: 1rem;
   position: relative;
   padding-bottom: 2.5rem;
-  /* margin: 50px auto; */
   left: 0%;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);

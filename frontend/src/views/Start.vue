@@ -1,5 +1,6 @@
 <template>
 	<div class="big-container">
+		
 		<!-- <div class="container"> -->
 			<!-- <header>
 				<div class="logo">
@@ -36,9 +37,6 @@
 
   <Teleport to="body">
 
-
-
-
   <div v-if="open" class="flex justify-center fixed z-50 bg-opacity-70 bg-neutral-900 p-5 text-blue-500 w-100 h-full">
 	<div class="w-5/6 sm:w-1/3 sm:h-5/12 m-auto rounded-lg bg-slate-400 p-3 bg-opacity-40">
 		<form @submit.prevent="login" class="align-center bg-slate-500 bg-opacity-90">
@@ -70,8 +68,9 @@
 
 		<!-- NAVIGATION -->
 		
-		<div class="flex justify-wrap top-shadow">
-			
+		<div class="flex justify-wrap top-shadow hidden md:block">
+		<!-- <div class="flex justify-wrap top-shadow min-[320px]:hidden"> -->
+			<Logo />
 			<div class="w-full flex justify-end pr-20">
 				<span class="w-full h-20 flex justify-between items-center nav">
 
@@ -104,9 +103,11 @@
           <CheckInComp v-if="activeTab === 'CheckInComp'"/> -->
 
 		<!-- <StartAbout /> -->
-
+	<div class="w-full flex justify-center">
 		<StartWelcome v-if="activeTab === 'StartWelcome'"/>
 		<StartAbout v-if="activeTab === 'StartAbout'"/>
+	</div>
+<!-- <h1 class="w-full bg-red-500 flex justify-center">TEST</h1> -->
 
 
 
@@ -120,7 +121,7 @@
 		</div>
 	<p class="text-white fixed bottom-2 left-1 opacity-20 text-xs font-thin">Created By Daniel Burgess</p>
 		<!-- <div class="hm-logo"></div> -->
-		<Logo />
+		<!-- <Logo /> -->
 
 
 
