@@ -150,7 +150,7 @@ h3 {
     width: 40px;
     height: 40px;
     position: relative;
-      
+    /* background-color: blue; */
   }
   #docIcon:hover{
         -webkit-transform: rotate(360deg) scale(2); /* Chrome 4+, Op 15+, Saf 3.1, iOS Saf 3.2+ */
@@ -169,13 +169,16 @@ h3 {
   #docIcon{
     z-index: 1;
     border-radius: 8px;
+    visibility: hidden;
     /* background-color: rgb(245, 20, 4); */
     background-color: rgb(172, 231, 255);
     width: 40px;
     height: 40px;
     position: absolute;
+    /* background-color: rgb(233, 17, 17); */
       
   }
+
   #docIcon:hover{
         -webkit-transform: rotate(360deg) scale(2); /* Chrome 4+, Op 15+, Saf 3.1, iOS Saf 3.2+ */
         -moz-transform: rotate(360deg) scale(2); /* Fx 3.5-15 */

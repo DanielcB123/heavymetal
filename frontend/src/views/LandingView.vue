@@ -28,7 +28,7 @@ const open = ref(false);
 </script>
 
 <template>
-  <main>
+  <main class="big-container">
     <div class="">
       
       <NavBar />
@@ -465,6 +465,38 @@ position: relative;
 
 }
 
+
+@media (max-width: 650px) {
+  .right{
+    width: 100vw;
+    /* height: 100vh; */
+    top: -45rem;
+    /* z-index: 1; */
+    /* border-radius: 8px; */
+
+    /* background-color: rgb(172, 231, 255); */
+    /* width: 40px;
+    height: 40px; */
+    /* position: absolute; */
+  }
+}
+@media (max-height: 675px) {
+  .right{
+    width: 100vw;
+    /* height: 100vh; */
+    top: -35rem;
+    /* z-index: 1; */
+    /* border-radius: 8px; */
+
+    /* background-color: rgb(172, 231, 255); */
+    /* width: 40px;
+    height: 40px; */
+    /* position: absolute; */
+  }
+}
+
+
+
 @media screen and (min-width: 2200px) {
   .nav {
     background-color: lavender;
@@ -474,7 +506,7 @@ position: relative;
 }
 
 /* =====================================for sidebar=================================== */
-@media screen and (max-width: 2200px) {
+/* @media screen and (max-width: 2200px) { */
   #landing{
     /* height: 90vh; */
     width: 100%;
@@ -520,7 +552,7 @@ position: relative;
     margin-right: .2rem;
     margin-bottom: .2rem;
   }
-}
+/* } */
 @media screen and (max-width: 1024px) {
   #landing{
     width: 100%;

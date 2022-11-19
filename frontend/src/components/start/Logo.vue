@@ -15,6 +15,7 @@ export default {
 /* position: relative; */
 /* width: 400px; */
 /* background-image: url('@/assets/images/hm-logo.png'); */
+
 }
 .hm-logo:before{
  
@@ -121,6 +122,8 @@ export default {
     margin-left: 2rem;
     margin-top: 2%;
     /* background-color: brown; */
+    margin-left: 2.5rem;
+    z-index: 50;
     }
 }
 </style>

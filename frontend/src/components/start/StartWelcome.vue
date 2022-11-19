@@ -1,6 +1,6 @@
 <template>
 <div class="w-screen h-screen flex flex-col my-box-shadow">
-		<div class="w-full flex justify-center mt-64">
+		<div class="w-full flex justify-center mt-64 welcome-body">
 			<!-- <div class="w-full h-full flex"> -->
 			<h1 class="w-screen flex justify-center text-white text-5xl body-header-text my-box-shadow">Crush Your Inconveniences.&ensp;Power Your Future.</h1>
 		</div>
@@ -36,4 +36,9 @@ font-family: 'Montserrat', sans-serif;
 
 }
 
+@media screen and (max-width: 765px) {
+	.welcome-body{
+		margin-top:11rem;
+	}
+}
 </style>
