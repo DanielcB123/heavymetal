@@ -44,10 +44,10 @@
           </button>
  
         </div> -->
-        <div class="sm:hidden w-20 py-2 border-2 rounded-full">
+        <div class="sm:hidden w-20 py-2 h-20 border-2 rounded-full ml-16 z-10 hover:bg-slate-900 transition duration-200 ease-in-out">
 
-                  <div class="w-24 p-2 flex ">
-                    <div class="w-5 flex items-center justify-center">
+                  <div class="w-24 mt-1 p-2 flex">
+                    <div class="w-7 flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path fill="#f8fafc" d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 
                           32-32C448 382.8 369.2 304 272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 
