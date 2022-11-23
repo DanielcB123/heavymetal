@@ -16,7 +16,7 @@
             <input type="password" placeholder="Password" id="password" v-model="form.password"><br/>
             <input type="password" placeholder="Confirm Password" id="c_password" v-model="form.c_password"><br/>
             <button type="submit">Register</button>
-            <RouterLink class="text-white" to="login">Login</RouterLink>
+            <!-- <RouterLink class="text-white" to="login">Login</RouterLink> -->
         </form>
     </div>
 </template>
