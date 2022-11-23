@@ -58,7 +58,7 @@
 							<div @click="open = true" class="text-sky-900 flex p-2 bg-white border-2 border-sky-900 rounded" to="login">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="svg-login w-7 pr-2">
 									<path  fill="#0c4a6e" d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32C448 382.8 369.2 304
-										272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 256c70.69 0 128-57.31 
+										272 304zM48.99 464C56.89 400.9 110.8 352 176 352h96c65.16 0 119.1 48.95 127 112H48.99zM224 25test6c70.69 0 128-57.31 
 										128-128c0-70.69-57.31-128-128-128S96 57.31 96 128C96 198.7 153.3 256 224 256zM224 48c44.11 0 80 35.89 80 80c0 44.11-35.89
 										80-80 80S144 172.1 144 128C144 83.89 179.9 48 224 48z"/>
 								</svg>
@@ -167,7 +167,7 @@
 
 		<div class="w-full h-1/2 mt-auto  flex justify-center footer">
 			<div class="flex mt-auto justify-between p-5">
-				<RouterLink class="rounded-full mt-12 text-white px-5 py-2 mx-3 join-btn" to="#">JOIN</RouterLink>
+				<RouterLink class="rounded-full mt-12 text-white px-5 py-2 mx-3 join-btn" to="register">JOIN</RouterLink>
 				<RouterLink class="rounded-full mt-12 px-1 text-white px-0 py-2 mx-3 watch-video-btn" to="#">WATCH FULL VIDEO </RouterLink>
 				<RouterView />
 			</div>

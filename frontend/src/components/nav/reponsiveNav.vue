@@ -95,7 +95,7 @@
 
           <ul class="w-36 flex ">
             <!-- ADDED hidden sm:block to make invisible when mobile but now need to make mobile buttons -->
-            <li class=" hidden sm:block group -ml-16 relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-slate-100 sm:bg-slate-800 sm:bg-opacity-50">
+            <li class=" hidden sm:block group -ml-16 relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-slate-100 sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm">
                   <div class="w-48 p-2 flex rounded ">
                     <div class="w-4 flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -109,13 +109,40 @@
                     <p class="pl-2 flex items-center justify-center">Search</p>
                   </div>
                   <div class="group-hover:block absolute hidden h-auto">
-                    <ul class="top-0 w-48 bg-white shadow px-6 py-8 rounded-b-md">
-                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item</a></li>
-                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 2</a></li>
-                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 3</a></li>
-                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 4</a></li>
-                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 5</a></li>
+                    <ul class="top-0 w-48 bg-white shadow px-6 py-2 rounded-b-md">
+                        <li class="py-1">
+                          <a class="block text-slate-500 font-bold text-base uppercase hover:text-slate-700 cursor-pointer">
+                            <!-- <input type="text" placeholder="Google" class="-ml-4 w-44 px-2 py-1 pb-2 border-b"> -->
+
+                            <form id="googleSrch" action="https://google.com/search" method="get" target="_blank" autocomplete="off" onkeydown="return event.key != 'Enter';">
+                              <input type="text" name="q" id="google-sch-input" placeholder="Google" class="search-input no-outline -ml-4 w-44 px-2 py-1 pb-2 border-b"/>
+                            </form>
+
+                          </a>
+                        </li>
+                        <li class="py-1">
+                          <a class="block text-slate-500 text-base  hover:text-slate-700 cursor-pointer">
+                            <input type="text" placeholder="HeavyMetal" class="search-input no-outline -ml-4 w-44 px-2 py-1 pb-2 border-b">
+
+
+
+                            <!-- <button class="bg-red-400 py-2 px-2" @click="test()">test</button> -->
+
+
+
+                          </a>
+                        </li>
+                        <li class="py-1">
+                          <a class="block text-slate-500 text-base hover:text-slate-700 cursor-pointer flex justify-center w-100">
+                            <input @click="submitGoogleSrch()" type="submit" form="googleSrch" id="google-search-button" class="w-full mt-2 mb-1 bg-blue-500 py-2.5 px-1 text-white rounded-l-md hover:bg-blue-600 animation duration-150 ease-in-out ">
+                            <!-- <button type="button" id="google-search-button" class="w-full mt-2 mb-1 bg-blue-500 py-2.5 px-1 text-white rounded-md hover:bg-blue-600 animation duration-150 ease-in-out hidden">Google Search</button> -->
+                            <button type="button" id="hm-search-button" class="w-full mt-2 mb-1 bg-green-500 py-2.5 px-1 text-white rounded-r-md hover:bg-blue-600 animation duration-150 ease-in-out ">HM Search</button>
+
+
+                          </a>
+                        </li>
                     </ul>
+                    
                   </div>
               </li>
           </ul>
@@ -124,16 +151,15 @@
         </li>
 
 <!-- ADDED hidden sm:block to make invisible when mobile but now need to make mobile buttons -->
-            <li class="hidden sm:block group  relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-white sm:bg-slate-800 sm:bg-opacity-80">
+            <li class="hidden sm:block group  relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-white sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm">
                   <div class="w-28 pl-2 flex rounded ">
                     <div class="w-4 flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                        <path fill="#f8fafc" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0
-                         45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 
-                         208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5
-                          144 144 144z"
+                        <path fill="#f8fafc" d="M543.9 251.4c0-1.1 .1-2.2 .1-3.4c0-48.6-39.4-88-88-88l-40 0H320l-16 0 0 0v16 72c0 22.1-17.9 40-40 40s-40-17.9-40-40V128h.4c4-36 
+                          34.5-64 71.6-64H408c2.8 0 5.6 .2 8.3 .5l40.1-40.1c21.9-21.9 57.3-21.9 79.2 0l78.1 78.1c21.9 21.9 21.9 57.3 0 79.2l-69.7 69.7zM192 128V248c0 39.8 32.2 72 
+                          72 72s72-32.2 72-72V192h80l40 0c30.9 0 56 25.1 56 56c0 27.2-19.4 49.9-45.2 55c8.2 8.6 13.2 20.2 13.2 33c0 26.5-21.5 48-48 48h-2.7c1.8 5 2.7 10.4 2.7 16c0
+                          26.5-21.5 48-48 48H224c-.9 0-1.8 0-2.7-.1l-37.7 37.7c-21.9 21.9-57.3 21.9-79.2 0L26.3 407.6c-21.9-21.9-21.9-57.3 0-79.2L96 258.7V224c0-53 43-96 96-96z"
                         />
-                        
                       </svg>
                     </div>
                     <p class="pl-2 flex items-center justify-center pl-2 py-2">Help</p>
@@ -161,7 +187,7 @@
         <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer w-full flex ml-36">
           <ul class="w-full flex">
             <li class="hidden sm:block group  relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-full sm:border-2 sm:border-slate-100 sm:bg-slate-800">
-                  <div class="w-48 p-2 flex ">
+                  <div class="w-48 p-2 flex -mt-.5 ml-1">
                     <div class="w-5 flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path fill="#f8fafc" d="M272 304h-96C78.8 304 0 382.8 0 480c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 
@@ -187,7 +213,7 @@
           </ul>
         </li>
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Check In</li>
-        <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Client Search</li>
+        <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Client Search</li>z
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Personal Training</li>
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Classes</li>
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Store</li>
@@ -221,9 +247,6 @@ import router from '../../router/index';
     //     toggleAble.classList.toggle('open');
     // }
 
-
-    
-
 /*
 
 
@@ -235,6 +258,19 @@ import router from '../../router/index';
 
 
 */
+
+
+
+    function emptyInput(){
+       document.getElementById('google-sch-input').value = '';
+      
+    }
+
+
+    function submitGoogleSrch(){
+      setTimeout(emptyInput,1000);
+    }
+
 
     function hamburger(){
         document.getElementById('nav-icon4').classList.toggle('open');
@@ -258,7 +294,6 @@ import router from '../../router/index';
             return { showMenu, toggleNav };
         }
     }
-
 
     
 //   }
@@ -408,6 +443,18 @@ import router from '../../router/index';
   opacity: 1;
 }
 
+.search-input {
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+  background-color: rgb(255, 255, 255);
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
 @keyframes wave {
   0% {
     margin-left: 0;
@@ -425,11 +472,7 @@ import router from '../../router/index';
     transform: translate3d(0,-25px,0);
   }
 }
-.test{
-  /* position: fixed;
-  visibility: visible;
-  background-color: red; */
-}
+
 .mobile-visibility-nav-options{
 visibility: hidden;
 }
