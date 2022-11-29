@@ -25,25 +25,7 @@
           >Heavy Metal
         </router-link>
         <!-- Mobile menu button -->
-        <!-- <div @click="toggleNav" class="flex md:hidden">
-          <button
-            type="button"
-            class="
-              text-gray-100
-              hover:text-gray-400
-              focus:outline-none focus:text-gray-400
-            "
-          >
-            <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
-              <path
-                fill-rule="evenodd"
-                d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"
-              ></path>
-            </svg>
-            
-          </button>
- 
-        </div> -->
+
         <div class="sm:hidden w-20 py-2 h-20 border-2 rounded-full ml-16 z-10 hover:bg-slate-900 transition duration-200 ease-in-out">
 
                   <div class="w-24 mt-1 p-2 flex">
@@ -75,11 +57,6 @@
           md:flex 
         "
       >
-                <!-- flex-col
-          mt-8
-          space-y-4
-          md:flex md:space-y-0 md:flex-row md:items-center md:space-x-10 md:mt-0 mr-16 bg-orange-500 -->
-        <!-- <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Home</li> -->
         <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">
           <div class="w-28 flex mr-2">
 
@@ -95,8 +72,25 @@
 
           <ul class="w-36 flex ">
             <!-- ADDED hidden sm:block to make invisible when mobile but now need to make mobile buttons -->
-            <li class=" hidden sm:block group -ml-16 relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-slate-100 sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm">
-                  <div class="w-48 p-2 flex rounded ">
+            <!-- <li class=" hidden sm:block group -ml-16 relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-slate-100 sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm"> -->
+            <li class="">
+
+
+
+
+
+
+
+
+
+<!-- FIND CSS AWESOME SEARCH INPUT ON MY SAVED INSTAGRAM -->
+
+
+
+
+
+
+                  <!-- <div class="w-48 p-2 flex rounded ">
                     <div class="w-4 flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                         <path fill="#f8fafc" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0
@@ -107,13 +101,11 @@
                       </svg>
                     </div>
                     <p class="pl-2 flex items-center justify-center">Search</p>
-                  </div>
-                  <div class="group-hover:block absolute hidden h-auto">
-                    <ul class="top-0 w-48 bg-white shadow px-6 py-2 rounded-b-md">
+                    </div>
+                    <div class="group-hover:block absolute hidden h-auto">
+                      <ul class="top-0 w-48 bg-white shadow px-6 py-2 rounded-b-md">
                         <li class="py-1">
                           <a class="block text-slate-500 font-bold text-base uppercase hover:text-slate-700 cursor-pointer">
-                            <!-- <input type="text" placeholder="Google" class="-ml-4 w-44 px-2 py-1 pb-2 border-b"> -->
-
                             <form id="googleSrch" action="https://google.com/search" method="get" target="_blank" autocomplete="off" onkeydown="return event.key != 'Enter';">
                               <input type="text" name="q" id="google-sch-input" placeholder="Google" class="search-input no-outline -ml-4 w-44 px-2 py-1 pb-2 border-b"/>
                             </form>
@@ -126,31 +118,24 @@
 
 
 
-                            <!-- <button class="bg-red-400 py-2 px-2" @click="test()">test</button> -->
-
-
-
                           </a>
                         </li>
                         <li class="py-1">
                           <a class="block text-slate-500 text-base hover:text-slate-700 cursor-pointer flex justify-center w-100">
                             <input @click="submitGoogleSrch()" type="submit" form="googleSrch" id="google-search-button" class="w-full mt-2 mb-1 bg-blue-500 py-2.5 px-1 text-white rounded-l-md hover:bg-blue-600 animation duration-150 ease-in-out ">
-                            <!-- <button type="button" id="google-search-button" class="w-full mt-2 mb-1 bg-blue-500 py-2.5 px-1 text-white rounded-md hover:bg-blue-600 animation duration-150 ease-in-out hidden">Google Search</button> -->
                             <button type="button" id="hm-search-button" class="w-full mt-2 mb-1 bg-green-500 py-2.5 px-1 text-white rounded-r-md hover:bg-blue-600 animation duration-150 ease-in-out ">HM Search</button>
 
 
                           </a>
                         </li>
-                    </ul>
-                    
-                  </div>
-              </li>
-          </ul>
+                      </ul>
+                  </div> -->
+                </li>
+              </ul> 
 
 
         </li>
 
-<!-- ADDED hidden sm:block to make invisible when mobile but now need to make mobile buttons -->
             <li class="hidden sm:block group  relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-white sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm">
                   <div class="w-28 pl-2 flex rounded ">
                     <div class="w-4 flex items-center justify-center">
@@ -213,7 +198,7 @@
           </ul>
         </li>
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Check In</li>
-        <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Client Search</li>z
+        <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Client Search</li>
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Personal Training</li>
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Classes</li>
         <li class="sm:hidden text-sky-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Store</li>

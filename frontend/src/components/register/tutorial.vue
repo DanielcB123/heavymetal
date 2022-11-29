@@ -1,11 +1,11 @@
 <template>
-    <div>
-        <form @submit.prevent="register" class="bg-blue-50">
+    <div class="flex justify-center">
+        <form @submit.prevent="register" class="w-5/6 h-4/6 bg-white mt-12">
         
-            <h1>MUST THINK ABOUT THIS</h1>
-            <h3>Register</h3>
-            <button class="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="button" @click="btnClick('next')">Next</button>
-            <!-- <p style="color:red" v-for="error in errors" :key="error">
+            <h1></h1>
+            <h3>Tutorial</h3>
+            
+            <p style="color:red" v-for="error in errors" :key="error">
                 <span v-for="err in error" :key="err"> {{ err }} </span>
             </p>
             <input type="text" placeholder="First Name" id="firstName" v-model="form.firstName"><br/>
@@ -14,14 +14,14 @@
             <input type="password" placeholder="Password" id="password" v-model="form.password"><br/>
             <input type="password" placeholder="Confirm Password" id="c_password" v-model="form.c_password"><br/>
             <button type="submit">Register</button>
-            <RouterLink class="text-white" to="login">Login</RouterLink> -->
+            <RouterLink class="text-white" to="login">Login</RouterLink>
         </form>
     </div>
 </template>
 
 <script>
 export default {
-    name:'confirmation'
+    name:'Tutorial'
 }
 </script>
 
