@@ -28,9 +28,9 @@
         <div class="hidden sm:block w-screen h-20 mt-2">
             <ul class="h-full flex justify-center items-center pl-12 bg-slate-300">
 
-                <li id="bar1" @mouseover="changeColor1()" class="bis2 z-50 bis bg-neutral-300 py-1 w-3/12  -ml-7 flex justify-end pr-8"><p>Personal Info</p></li>         
+                <li id="bar1" @mouseover="changeColor1" class="bis2 z-50 bis bg-neutral-300 py-1 w-3/12  -ml-7 flex justify-end pr-8"><p>Personal Info</p></li>         
 
-                <li id="bar2" @mouseover="changeColor2()" class="bis2 z-40  bg-neutral-300 py-1 w-3/12  -ml-16 flex justify-end pr-6"><p>Business Info</p></li>
+                <li id="bar2" @mouseover="changeColor2" class="bis2 z-40  bg-neutral-300 py-1 w-3/12  -ml-16 flex justify-end pr-6"><p>Business Info</p></li>
 
                 <li id="bar3" @mouseover="changeColor3()" class="bis2 z-30 bg-neutral-300 py-1 w-3/12  border-black -ml-16 flex justify-end pr-10"><p>Payment</p></li>
 
@@ -174,8 +174,10 @@ function changeColor1(dir){
 
 // taking dir from emit. changed 'personal-next' to be passed in form reactive variable. then use if statement
 // to make sure the form has not been changed ( or empty )  and if not assign to form array. (e.g form.firstName)
-//  NEED TO DO THIS FOR ALL CHANGECOLOR FUNCTIONS. (also need to change the name of the change color funciton to something better)
+// NEED TO DO THIS FOR ALL CHANGECOLOR FUNCTIONS. (also need to change the name of the change color funciton to something better)
+// Also need to remove '()' from changeColor functions in '@mouseover' 
 function changeColor2(dir){
+
     if(dir.firstName != '' && (dir.firstName != form.firstName)){
         console.log("ok ----> "+ dir.firstName);
         form.firstName = dir.firstName;
