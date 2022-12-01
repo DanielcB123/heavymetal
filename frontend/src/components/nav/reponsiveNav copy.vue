@@ -62,7 +62,7 @@
         <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">Home</li>
         <li class="text-gray-100 hover:text-indigo-400 z-50 hover:cursor-pointer">
           <div class="w-48 p-2 flex bg-red-400">
-Help
+            Help
           </div>
           
         </li>

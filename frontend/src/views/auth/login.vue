@@ -16,6 +16,7 @@
 
             <div class="grid place-items-center">
                 <p v-if="error" style="color:red">{{error}}</p>
+                <input type="email" placeholder="Business ID" id="email" v-model="form.email" class="w-3/4 rounded-sm py-2 px-3"><br/>
                 <input type="email" placeholder="Email" id="email" v-model="form.email" class="w-3/4 rounded-sm py-2 px-3"><br/>
                 <input type="password" placeholder="Password" id="password" v-model="form.password" class="w-3/4 rounded-sm py-2 px-3"><br/>
             </div>

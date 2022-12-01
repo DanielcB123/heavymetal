@@ -1,21 +1,28 @@
 <template>
-    <div class="flex justify-center">
-        <form @submit.prevent="register" class="w-5/6 h-4/6 bg-white mt-12">
-        
-            <h1></h1>
-            <h3>Tutorial</h3>
-            
-            <p style="color:red" v-for="error in errors" :key="error">
-                <span v-for="err in error" :key="err"> {{ err }} </span>
-            </p>
-            <input type="text" placeholder="First Name" id="firstName" v-model="form.firstName"><br/>
-            <input type="text" placeholder="Last Name" id="lastName" v-model="form.lastName"><br/>
-            <input type="email" placeholder="Email" id="email" v-model="form.email"><br/>
-            <input type="password" placeholder="Password" id="password" v-model="form.password"><br/>
-            <input type="password" placeholder="Confirm Password" id="c_password" v-model="form.c_password"><br/>
-            <button type="submit">Register</button>
-            <RouterLink class="text-white" to="login">Login</RouterLink>
-        </form>
+
+        <div class="w-5/6 sm:w-1/2 mt-8 -ml-12 sm:ml-0">
+        <div class="w-full bg-white rounded-sm shadow-2xl p-8 m-4">
+            <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">Tutorial</h1>
+            <form action="/" method="post">
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 font-bold text-lg text-gray-900" for="first_name">First Name</label>
+                    <input class="border py-2 px-3 text-grey-800" type="text" name="first_name" id="first_name">
+                </div>
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 font-bold text-lg text-gray-900" for="last_name">Last Name</label>
+                    <input class="border py-2 px-3 text-grey-800" type="text" name="last_name" id="last_name">
+                </div>
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 font-bold text-lg text-gray-900" for="email">Email</label>
+                    <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email">
+                </div>
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 font-bold text-lg text-gray-900" for="password">Phone Number</label>
+                    <input class="border py-2 px-3 text-grey-800" type="password" name="password" id="password">
+                </div>
+                <button class="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="button" @click="btnClick('prev')">Prev</button>
+            </form>
+        </div>
     </div>
 </template>
 
@@ -37,10 +44,7 @@ const activeTab = ref('');
 const emit = defineEmits(['next', 'prev',])
 function btnClick(param) {
     
-    if(param == 'next'){
-        emit('next')
-        console.log("pee");
-    }
+
     if(param == 'prev'){
         emit('prev')
     }

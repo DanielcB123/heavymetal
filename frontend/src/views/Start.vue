@@ -19,6 +19,7 @@
 
 					<div class="grid place-items-center">
 						<p v-if="error" style="color:red">{{error}}</p>
+						<!-- <input type="email" placeholder="Business ID" id="email" class="w-3/4 rounded-sm py-2 px-3"><br/> -->
 						<input type="email" placeholder="Email" id="email" v-model="form.email" class="w-3/4 rounded-sm py-2 px-3"><br/>
 						<input type="password" placeholder="Password" id="password" v-model="form.password" class="w-3/4 rounded-sm py-2 px-3"><br/>
 					</div>
@@ -91,7 +92,7 @@
 		<div id="NavMenu" class="z-50 mb-16 fixed h-48 bg-gray-400 bottom-0 w-full hidden">
 			<span @click="activeTab = 'StartWelcome'; toggleMobileNavClose()" class="w-full flex justify-center font-semibold h-12 py-2 btn shiny">HOME</span>
 			<span @click="activeTab = 'StartAbout'; toggleMobileNavClose()" class="w-full flex justify-center font-semibold h-12 py-2 btn shiny">ABOUT</span>
-			<span class="w-full flex justify-center font-semibold h-12 py-2 btn shiny">EMPLOYERS</span>
+			<span class="w-full flex justify-center font-semibold h-12 py-2 btn shiny">EVENTS</span>
 			<span class="w-full flex justify-center font-semibold h-12 py-2 btn shiny">PARTNERS</span>
 			<!-- <span class="w-full flex justify-center h-12 py-2 btn shiny">TEST</span> -->
 			
@@ -128,8 +129,8 @@
 					<div></div>
 
 					<div class="w-1/2 text-white hm-font flex justify-between nav-options">
-						<p @click="activeTab = 'StartWelcome'" class="text-gray-300 hover:text-white hover:cursor-pointer duration-300 nav-text">Home</p>	
-						<p class="text-gray-300 hover:text-white hover:cursor-pointer duration-300 nav-text">Employers</p>	
+						<p @click="activeTab = 'StartWelcome'" class="z-50 text-gray-300 hover:text-white hover:cursor-pointer duration-300 nav-text">Home</p>	
+						<p class="text-gray-300 hover:text-white hover:cursor-pointer duration-300 nav-text">Events</p>	
 						<p class="text-gray-300 hover:text-white hover:cursor-pointer duration-300 nav-text">Partners</p>	
 						<!-- <p class="text-gray-300 hover:text-white hover:cursor-pointer duration-300 nav-text">Documentation</p>	 -->
 						<p @click="activeTab = 'StartAbout'" class="text-gray-300 hover:text-white hover:cursor-pointer duration-300 nav-text">About</p>					
