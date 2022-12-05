@@ -54,7 +54,7 @@
             <PersonalInfo @next="changeColor2"  v-if="activeTab === 'PersonalInfo'"/>
         </transition>
         <transition name="fade" mode="out-in">
-            <BusinessInfo @prev="backToPersonal();" @next="changeColor3('business-next');" v-if="activeTab === 'BusinessInfo'"/>
+            <BusinessInfo @prev="backToPersonal();" @next="changeColor3" v-if="activeTab === 'BusinessInfo'"/>
         </transition>
         <transition @prev="backToBusiness();" @next="changeColor4('payment-next');" name="fade" mode="out-in">
             <Payment v-if="activeTab === 'Payment'"/>
@@ -62,9 +62,13 @@
         <transition @prev="backToPayment();" @next="changeColor5('confirmation-next');" name="fade" mode="out-in">
             <Confirmation v-if="activeTab === 'Confirmation'"/>
         </transition>
-        <transition @prev="backToConfirmation();" name="fade" mode="out-in">
+        <transition @prev="backToConfirmation();" @skip="submitSkip" name="fade" mode="out-in">
             <Tutorial v-if="activeTab === 'Tutorial'"/>
         </transition>
+        <transition @openNewClientSignUp="testss()" name="fade" mode="out-in">
+            <ClientSignUp v-if="activeTab === 'ClientSignUp'"/>
+        </transition>
+        
 	</div>
 <!-- <h1 class="w-screen bg-red-500 flex justify-center text-white">{{form.firstname}}here</h1> -->
         </div>
@@ -90,12 +94,19 @@ import BusinessInfo from '../../components/register/businessInfo.vue'
 import Payment from '../../components/register/getPayment.vue'
 import Confirmation from '../../components/register/registerConfirmation.vue'
 import Tutorial from '../../components/register/tutorial.vue'
+import ClientSignUp from '../../components/newClientSignUp/clientSignUpMain.vue'
+
+function testss(){
+    console.log("blawddd");
+}
 
 const activeTab = ref('');
 
 let form = reactive({
     firstName: '',
     lastName: '',
+    firstName2: '',
+    lastName2: '',
     email: '',
     password: '',
     c_password:'',
@@ -119,7 +130,7 @@ changeColor1();
 })
 
 
-const register = async() => {
+const submitSkip = async() => {
     await axios.post('http://localhost:8000/api/client/register', form).then(res => {
         if(res.data.success){
             // const useRouter = router();
@@ -182,6 +193,27 @@ function changeColor2(dir){
         console.log("ok ----> "+ dir.firstName);
         form.firstName = dir.firstName;
     }
+
+    if(dir.lastName != '' && (dir.lastName != form.lastName)){
+        console.log("ok ----> "+ dir.lastName);
+        form.lastName = dir.lastName;
+    }
+
+    if(dir.email != '' && (dir.email != form.email)){
+        console.log("ok ----> "+ dir.email);
+        form.email = dir.email;
+    }
+
+    if(dir.password != '' && (dir.password != form.password)){
+        console.log("ok ----> "+ dir.password);
+        form.password = dir.password;
+    }
+
+    if(dir.c_password != '' && (dir.c_password != form.c_password)){
+        console.log("ok ----> "+ dir.c_password);
+        form.c_password = dir.c_password;
+    }
+
     if(progress.business_flag){
         openBusinessInfo();
     }
@@ -207,10 +239,16 @@ function changeColor2(dir){
 }
 
 function changeColor3(dir){
+    console.log("HERE");
+    if(dir.firstName1 != '' && (dir.firstName1 != form.firstName2)){
+        console.log("ok ----> "+ dir.firstName1);
+        form.firstName2 = dir.firstName1;
+    }
+
     if(progress.payment_flag){
         openPaymentInfo();
     }
-    if(dir == 'business-next'){
+    if(dir.location == 'business-next'){
         console.log(activeTab.value);
         // activeTab = 'BusinessInfo';
         if(activeTab.value == 'BusinessInfo'){

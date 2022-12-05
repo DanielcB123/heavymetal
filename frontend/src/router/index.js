@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import LandingView from '../views/LandingView.vue'
 import CheckInView from '../views/CheckIn/CheckInView.vue'
 import checkInComp from '../components/checkin/checkInComp.vue'
+import newClientSignUp from '../components/newClientSignUp/clientSignUpMain.vue'
 import app from '../App.vue'
 import login from '../views/auth/login.vue'
 import register from '../views/auth/register.vue'
@@ -22,6 +23,14 @@ const router = createRouter({
       path: '/landing',
       name: 'landingview',
       component: LandingView,
+      meta: {
+        requiresAuth:true
+      }
+    },
+    {
+      path: '/new-client-sign-up',
+      name: 'newClientSignUp',
+      component: newClientSignUp,
       meta: {
         requiresAuth:true
       }

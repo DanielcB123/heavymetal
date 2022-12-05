@@ -1,23 +1,23 @@
 <template>
 
-        <div class="w-5/6 sm:w-1/2 mt-8 -ml-12 sm:ml-0">
-        <div class="w-full bg-white rounded-sm shadow-2xl p-8 m-4">
-            <h1 class="block w-full text-center text-gray-800 text-2xl font-bold mb-6">Tutorial</h1>
+        <div class="w-screen h-screen flex justify-start main-background">
+        <div class="w-7/12 h-4/6 bg-opacity-0 rounded-sm shadow-2xl mt-0 p-5">
+            <h1 class="block w-full text-center text-gray-400 text-2xl font-bold mb-6">New Client Sign-up</h1>
             <form action="/" method="post">
                 <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-900" for="first_name">First Name</label>
+                    <label class="mb-2 font-bold text-lg text-gray-400" for="first_name">First Name</label>
                     <input class="border py-2 px-3 text-grey-800" type="text" name="first_name" id="first_name">
                 </div>
                 <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-900" for="last_name">Last Name</label>
+                    <label class="mb-2 font-bold text-lg text-gray-400" for="last_name">Last Name</label>
                     <input class="border py-2 px-3 text-grey-800" type="text" name="last_name" id="last_name">
                 </div>
                 <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-900" for="email">Email</label>
+                    <label class="mb-2 font-bold text-lg text-gray-400" for="email">Email</label>
                     <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email">
                 </div>
                 <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-900" for="password">Phone Number</label>
+                    <label class="mb-2 font-bold text-lg text-gray-400" for="password">Phone Number</label>
                     <input class="border py-2 px-3 text-grey-800" type="password" name="password" id="password">
                 </div>
                 
@@ -88,5 +88,8 @@ const register = async() => {
 </script>
 
 <style scoped>
+.main-background{
+    background: rgba(15, 15, 15, 0);
+}
 
 </style>

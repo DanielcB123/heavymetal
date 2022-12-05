@@ -31,7 +31,7 @@ const open = ref(false);
   <main class="big-container">
     <div class="">
       
-      <NavBar />
+      <NavBar @openNewClientSignUp="activeTab = 'ClientSignUp'" />
     </div>
 
     <div class="out">
@@ -254,7 +254,7 @@ const open = ref(false);
           <AdminBtn/>
         </template>
         <template #heading>
-          <RouterLink to="/admin" class="landing-headers">Admin</RouterLink>
+          <RouterLink to="/admin" class="landing-headers">Admin Dashboard</RouterLink>
         </template>
 
         <div class="hidden md:block">
@@ -286,6 +286,9 @@ const open = ref(false);
         <div class="column right" style="">
           <ClientSearch v-if="activeTab === 'ClientSearch'"/>
           <CheckInComp v-if="activeTab === 'CheckInComp'"/>
+          <transition name="fade" mode="out-in">
+            <ClientSignUp v-if="activeTab === 'ClientSignUp'"/>
+        </transition>
         </div>
               <!-- <button type="button" class="btn btn-dark mt-2 z-20" style="margin-left: " @click="logout">Logout</button> -->
 
@@ -300,6 +303,14 @@ const open = ref(false);
 <script setup>
 import { computed, onMounted, onUnmounted, ref } from "vue"
 import router from '../router/index';
+import ClientSignUp from '../components/newClientSignUp/clientSignUpMain.vue'
+
+
+function testss(){
+  console.log("blwa");
+}
+
+
 const activeTab = ref('');
 const showModal = ref(false);
 

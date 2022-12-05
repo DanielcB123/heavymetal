@@ -71,6 +71,34 @@
 
 
           <ul class="w-36 flex ">
+
+
+
+<!-- <RouterLink to="/new-client-sign-up" class="landing-headers"> -->
+            <li  @click="testss()" class="hidden sm:block group -ml-14 relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-white sm:bg-slate-300 sm:bg-opacity-40 hover:bg-cyan-500 hover:bg-opacity-30 transition duration-100 ease-in-out">
+                  <div class="w-48 pl-2 flex rounded ">
+                    <div class="w-4 flex items-center justify-center">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path fill="#f8fafc" d="M352 128c0 70.7-57.3 128-128 128s-128-57.3-128-128S153.3 0 224 0s128 57.3 128 128zM0 482.3C0 383.8 79.8 304
+                         178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3
+                          0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 
+                          13.3-10.7 24-24 24s-24-10.7-24-24z"/>
+                      </svg>
+                    </div>
+                    <p class="pl-2 flex items-center justify-center pl-2 py-2 ">New Client Sign-up</p>
+                  </div>
+                  <!-- <div class="group-hover:block  absolute hidden h-auto w-16">
+                    <ul class="top-0 w-28 bg-white shadow px-6 py-8 rounded-b-md">
+                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item</a></li>
+                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 2</a></li>
+                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 3</a></li>
+                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 4</a></li>
+                        <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 5</a></li>
+                    </ul>
+                  </div> -->
+              </li>
+<!-- </RouterLink> -->
+            
             <!-- ADDED hidden sm:block to make invisible when mobile but now need to make mobile buttons -->
             <!-- <li class=" hidden sm:block group -ml-16 relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-slate-100 sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm"> -->
             <li class="">
@@ -136,7 +164,7 @@
 
         </li>
 
-            <li class="hidden sm:block group  relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-white sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm">
+            <li class="hidden sm:block group relative dropdown text-white hover:text-purple-700 cursor-pointer font-bold text-base tracking-wide sm:rounded-md sm:border sm:border-white sm:bg-slate-300 sm:bg-opacity-40 hover:rounded-b-sm">
                   <div class="w-28 pl-2 flex rounded ">
                     <div class="w-4 flex items-center justify-center">
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -149,7 +177,7 @@
                     </div>
                     <p class="pl-2 flex items-center justify-center pl-2 py-2">Help</p>
                   </div>
-                  <div class="group-hover:block  absolute hidden h-auto w-16">
+                  <div class="group-hover:block absolute hidden h-auto w-16">
                     <ul class="top-0 w-28 bg-white shadow px-6 py-8 rounded-b-md">
                         <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item</a></li>
                         <li class="py-1"><a class="block text-purple-500 font-bold text-base uppercase hover:text-purple-700 cursor-pointer">Item 2</a></li>
@@ -159,6 +187,8 @@
                     </ul>
                   </div>
               </li>
+
+              
           </ul>
 
 
@@ -185,8 +215,8 @@
                     </div>
                     <p class="pl-2 flex items-center justify-center text-xs">Daniel Burgess</p>
                   </div>
-                  <div class="group-hover:block rounded-b absolute hidden h-auto ml-4">
-                    <ul class="top-0 w-40 bg-slate-800 shadow px-0 pt-2 mt-1">
+                  <div class="group-hover:block rounded-b absolute hidden h-auto ml-4 profile-dd">
+                    <ul class="top-0 w-40 bg-slate-800 shadow px-0 pt-2">
                         <li class="py-1"><a class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 py-2 px-2 w-full cursor-pointer">Item</a></li>
                         <li class="py-1"><a class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 py-2 px-2 w-full cursor-pointer">Item 2</a></li>
                         <li class="py-1"><a class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 py-2 px-2 w-full cursor-pointer">Item 3</a></li>
@@ -219,32 +249,15 @@
   </div>
 </template>
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from "vue"
+import { computed, onMounted, onUnmounted, ref, defineEmits } from "vue"
 import router from '../../router/index';
 
-// export default {
-//   setup() {
+const emit = defineEmits(['openNewClientSignUp']);
 
-    // document.getElementById("nav-icon4").addEventListener("click", result);
-
-    // function result(){
-    //     let toggleAble = document.querySelector('.toggleable');
-    //     toggleAble.classList.toggle('open');
-    // }
-
-/*
-
-
-
-        ENDED HERE 9/29/22 10:10PM
-        Status: testing the hamburger button with the function printing to console. Need to google search on how to toggle classes 
-                within a function as to toggle the 'open' css class which initiates
-
-
-
-*/
-
-
+    function testss(){
+      // console.log('blaw');
+      emit('openNewClientSignUp')
+    }
 
     function emptyInput(){
        document.getElementById('google-sch-input').value = '';
@@ -261,6 +274,9 @@ import router from '../../router/index';
         document.getElementById('nav-icon4').classList.toggle('open');
     }
     
+    function openNewClientSignup(){
+      
+    }
 
     function logout(){
     console.log('here');
@@ -438,6 +454,10 @@ import router from '../../router/index';
 
 .no-outline:focus {
   outline: none;
+}
+
+.profile-dd{
+  margin-top: .15rem;
 }
 
 @keyframes wave {

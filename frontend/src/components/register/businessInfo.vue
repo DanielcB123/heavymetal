@@ -6,12 +6,12 @@
                 <div class="flex justify-center mb-4">
                     <div class="w-1/2 flex flex-col pr-2">
                         <label class="mb-2 font-bold text-lg text-gray-900" for="first_name">First Name</label>
-                        <input type="text" placeholder="First Name" id="firstName" v-model="form.firstName"><br/>
+                        <input type="text" placeholder="First Name" id="firstName" v-model="form.firstName1"><br/>
                         <!-- <input class="border py-2 px-3 text-grey-800" type="text" name="first_name" id="first_name"> -->
                     </div>
                     <div class="w-1/2 flex flex-col">
                         <label class="mb-2 font-bold text-lg text-gray-900" for="last_name">Last Name</label>
-                        <input class="border py-2 px-3 text-grey-800" type="text" name="last_name" id="last_name" v-model="form.firstName">
+                        <input class="border py-2 px-3 text-grey-800" type="text" name="last_name" id="last_name" v-model="form.firstName1">
                     </div>
                 <!-- </div>
                 <div class="flex flex-col mb-4"> -->
@@ -56,7 +56,8 @@ import router  from '../../router';
 import axios from 'axios';
 
 let form = reactive({
-    firstName: '',
+    location: 'business-next',
+    firstName1: '',
     lastName: '',
     email: '',
     password: '',
@@ -65,15 +66,14 @@ let form = reactive({
 
 
 const activeTab = ref('');
-const emit = defineEmits(['next', 'prev'])
 
 
 
+
+const emit = defineEmits(['next', 'prev',])
 function btnClick(param) {
-    
     if(param == 'next'){
-        emit('next', { form } )
-        console.log("poop");
+        emit('next',   form  )
     }
     if(param == 'prev'){
         emit('prev')
