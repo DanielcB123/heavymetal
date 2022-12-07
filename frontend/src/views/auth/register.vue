@@ -5,7 +5,7 @@
 
         <div class="sm:hidden w-screen flex justify-center h-20 mt-2 bg-slate-300 pl-1">
            <div id="mobile-bar1" @mouseover="changeColor1()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-50 text-xs"><p class="mobile-arrow-text">Personal</p></div>
-           <div id="mobile-bar2" @mouseover="changeColor2()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-40 text-xs -ml-5"><p class="mobile-arrow-text">Business</p></div>
+           <div id="mobile-bar2" @mouseover="changeColor2()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-40 text-xs -ml-5"><p class="mobile-arrow-text">Company Info</p></div>
            <div id="mobile-bar3" @mouseover="changeColor3()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-30 text-xs -ml-5"><p class="mobile-arrow-text">Payment</p></div>
            <div id="mobile-bar4" @mouseover="changeColor4()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-20 text-xs -ml-5"><p class="mobile-arrow-text">Confirm</p></div>
            <div id="mobile-bar5" @mouseover="changeColor5()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-10 text-xs -ml-5"><p class="mobile-arrow-text">Tutorial</p></div>
@@ -30,9 +30,9 @@
 
                 <li id="bar1" @mouseover="changeColor1" class="bis2 z-50 bis bg-neutral-300 py-1 w-3/12  -ml-7 flex justify-end pr-8"><p>Personal Info</p></li>         
 
-                <li id="bar2" @mouseover="changeColor2" class="bis2 z-40  bg-neutral-300 py-1 w-3/12  -ml-16 flex justify-end pr-6"><p>Business Info</p></li>
+                <li id="bar2" @mouseover="changeColor2" class="bis2 z-40  bg-neutral-300 py-1 w-3/12  -ml-16 flex justify-end pr-6"><p>Company Info</p></li>
 
-                <li id="bar3" @mouseover="changeColor3()" class="bis2 z-30 bg-neutral-300 py-1 w-3/12  border-black -ml-16 flex justify-end pr-10"><p>Payment</p></li>
+                <li id="bar3" @mouseover="changeColor3()" class="bis2 z-30 bg-neutral-300 py-1 w-3/12  border-black -ml-16 flex justify-end pr-10"><p>Payment Info</p></li>
 
                 <li id="bar4" @mouseover="changeColor4()" class="bis2 z-20 bg-neutral-300 py-1 w-3/12  border-black -ml-14 flex justify-end pr-7"><p>Confirmation</p></li>
 
@@ -56,18 +56,16 @@
         <transition name="fade" mode="out-in">
             <BusinessInfo @prev="backToPersonal();" @next="changeColor3" v-if="activeTab === 'BusinessInfo'"/>
         </transition>
-        <transition @prev="backToBusiness();" @next="changeColor4('payment-next');" name="fade" mode="out-in">
+        <transition name="fade" mode="out-in" @prev="backToBusiness();" @next="changeColor4('payment-next');">
             <Payment v-if="activeTab === 'Payment'"/>
         </transition>
         <transition @prev="backToPayment();" @next="changeColor5('confirmation-next');" name="fade" mode="out-in">
             <Confirmation v-if="activeTab === 'Confirmation'"/>
         </transition>
-        <transition @prev="backToConfirmation();" @skip="submitSkip" name="fade" mode="out-in">
-            <Tutorial v-if="activeTab === 'Tutorial'"/>
+        <transition name="fade" mode="out-in">
+            <Tutorial @prev="backToConfirmation();" @skip="submitSkip" v-if="activeTab === 'Tutorial'"/>
         </transition>
-        <transition @openNewClientSignUp="testss()" name="fade" mode="out-in">
-            <ClientSignUp v-if="activeTab === 'ClientSignUp'"/>
-        </transition>
+
         
 	</div>
 <!-- <h1 class="w-screen bg-red-500 flex justify-center text-white">{{form.firstname}}here</h1> -->
@@ -81,9 +79,6 @@
 
 
 
-
-
-
 <script setup>
 import { RouterLink } from 'vue-router'
 import { reactive, ref, onMounted } from 'vue';
@@ -94,7 +89,6 @@ import BusinessInfo from '../../components/register/businessInfo.vue'
 import Payment from '../../components/register/getPayment.vue'
 import Confirmation from '../../components/register/registerConfirmation.vue'
 import Tutorial from '../../components/register/tutorial.vue'
-import ClientSignUp from '../../components/newClientSignUp/clientSignUpMain.vue'
 
 function testss(){
     console.log("blawddd");
@@ -130,7 +124,9 @@ changeColor1();
 })
 
 
-const submitSkip = async() => {
+const submitSkip = async(param) => {
+    console.log("FORM HERE --> "+form.email+" "+param.password);
+    form.password = form.c_password = param.password;
     await axios.post('http://localhost:8000/api/client/register', form).then(res => {
         if(res.data.success){
             // const useRouter = router();
@@ -144,6 +140,25 @@ const submitSkip = async() => {
         }
     });
 }
+
+
+// const submitSkip = async(param) => {
+//     console.log("name: "+form.CompanyName+"  pass"+param.password);
+//     await axios.post('http://localhost:8000/api/company/register', form).then(res => {
+//         if(res.data.success){
+//             // const useRouter = router();
+//             console.log('succ company')
+//             localStorage.setItem('token',res.data.data.token)
+//             router.push('landing')
+//         }else{
+//             console.log('err')
+//             error.value = res.data.message;
+
+//         }
+//     });
+// }
+
+
 
 function test(){
     console.log("ERERERER");

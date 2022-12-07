@@ -31,3 +31,16 @@ Route::controller(AuthController::class)->group(function(){
     Route::post('/client/login','login');
     Route::post('/client/register','register');
 });
+
+
+// // Route::get('/company/company-search', [ClientAPI::class, 'showClient']);
+// // Route::get('/company/company-search', [ClientAPI::class, 'showClient'])->middleware('auth:sanctum');
+// // Route::post('/company/login',[AuthController::class, 'login']);
+// Route::delete('/company/logout',[CompanyController::class, 'logout']);
+// // Route::post('/company/register',[AuthController::class, 'register']);
+
+
+// Route::controller(CompanyController::class)->group(function(){
+//     Route::post('/company/login','login');
+//     Route::post('/company/register','register');
+// });

@@ -21,9 +21,20 @@
                     <input class="border py-2 px-3 text-grey-800" type="password" name="password" id="password">
                 </div>
                 
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 font-bold text-lg text-gray-900" for="password">Password</label>
+                    <input class="border py-2 px-3 text-grey-800" type="password" placeholder="Password" id="password" v-model="form.password">
+                </div>
+
+                <div class="flex flex-col mb-4">
+                    <label class="mb-2 font-bold text-lg text-gray-900" for="password">Confirm Password</label>
+                    <input class="border py-2 px-3 text-grey-800" type="password" placeholder="Confirm Password" id="c_password" v-model="form.c_password">
+                </div>
+
+
                 <div class="flex">
                     <button class="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="button" @click="btnClick('prev')">Prev</button>
-                    <button class="block bg-blue-400 hover:bg-blue-600 text-white uppercase text-lg mx-auto p-4 rounded" type="button" @click="btnClick('skip')">Skip</button>                </div>
+                    <button class="block bg-blue-400 hover:bg-blue-600 text-white uppercase text-lg mx-auto p-4 rounded" type="button" @click="btnClick('skip')">Submit</button>                </div>
             </form>
         </div>
     </div>
@@ -45,16 +56,6 @@ import axios from 'axios';
 
 const activeTab = ref('');
 const emit = defineEmits(['next', 'prev','skip'])
-function btnClick(param) {
-    
-
-    if(param == 'prev'){
-        emit('prev')
-    }
-    if(param == 'skip'){
-        emit('skip')
-    }
-}
 
 let form = reactive({
     firstName: '',
@@ -65,26 +66,39 @@ let form = reactive({
 });
 let errors = ref('');
 
+function btnClick(param) {
+    
 
-
-
-
-
-
-const register = async() => {
-    await axios.post('http://localhost:8000/api/client/register', form).then(res => {
-        if(res.data.success){
-            // const useRouter = router();
-            console.log('succ')
-            localStorage.setItem('token',res.data.data.token)
-            router.push('landing')
-        }else{
-            console.log('err')
-            errors.value = res.data.message;
-
-        }
-    });
+    if(param == 'prev'){
+        emit('prev')
+    }
+    if(param == 'skip'){
+        emit('skip', form )
+    }
 }
+
+
+
+
+
+
+
+
+
+// const register = async() => {
+//     await axios.post('http://localhost:8000/api/client/register', form).then(res => {
+//         if(res.data.success){
+//             // const useRouter = router();
+//             console.log('succ')
+//             localStorage.setItem('token',res.data.data.token)
+//             router.push('landing')
+//         }else{
+//             console.log('err')
+//             errors.value = res.data.message;
+
+//         }
+//     });
+// }
 </script>
 
 <style scoped>
