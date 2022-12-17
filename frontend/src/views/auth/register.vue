@@ -107,6 +107,7 @@ let form = reactive({
     companyName:'',
     companyID:'',
     admin:true,
+    owner:true,
 });
 let error = ref('');
 

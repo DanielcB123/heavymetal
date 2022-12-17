@@ -52,8 +52,12 @@ class AuthController extends Controller
             $input = $request->all();
             $input['password'] = bcrypt($input['password']);
             $user = User::create($input);
-            $escapeChar = str_replace(':','',$user->companyName.date("Ymd").date("H:i:s"));
-            $user->companyID = $escapeChar;
+
+            if($user->owner){
+                $escapeChar = str_replace(':','',$user->companyName.date("Ymd").date("H:i:s"));
+                $user->companyID = $escapeChar;
+            }
+
             
     
             $success['token'] = $user->createToken('MyApp')->plainTextToken;

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
             $table->boolean('admin')->nullable();
+            $table->boolean('owner')->default(false);
             $table->boolean('personal_trainer')->nullable();
             $table->string('companyID')->nullable();
             $table->string('token')->nullable();

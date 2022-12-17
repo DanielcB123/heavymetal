@@ -25,7 +25,8 @@ class User extends Authenticatable
         'admin',
         'personalTrainer',
         'companyID',
-        'companyName'
+        'companyName',
+        'owner',
     ];
 
     /**

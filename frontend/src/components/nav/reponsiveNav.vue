@@ -19,10 +19,12 @@
             md:text-2xl
             hover:text-indigo-400
             logo
-            w-48
+            w-72
             -ml-4
+            
           "
-          >Heavy Metal
+          >
+          <p class="w-full -ml-0">{{current_user.company}}</p>
         </router-link>
         <!-- Mobile menu button -->
 
@@ -228,7 +230,7 @@
                           <a class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 py-2 px-2 w-full cursor-pointer">
                           
                             <div @click="open.new_employee_modal = true" class="text-white flex" to="login">
-                              <p class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 w-full cursor-pointer">New Employee</p>
+                              <p class="block text-slate-400 font-bold text-base hover:text-slate-100 border-slate-800 w-full cursor-pointer">New Employee</p>
                             </div>
 
                             <Teleport to="body">
@@ -385,6 +387,7 @@ let current_user = reactive({
     firstName: '',
     lastName: '',
     admin:false,
+    company:'',
 });
 
 
@@ -402,9 +405,12 @@ setTimeout(function() {
       
 
         if(res){
-            current_user.firstName = res.data[0].firstName;
-            current_user.lastName = res.data[0].lastName;
-            current_user.admin = res.data[0].admin;
+            current_user.firstName  = res.data[0].firstName;
+            current_user.lastName   = res.data[0].lastName;
+            current_user.admin      = res.data[0].admin;
+            current_user.company    = res.data[0].companyName;
+            new_employee.companyID  = res.data[0].companyID;
+            new_employee.companyName  = res.data[0].companyName;
 
             // router.push('landing')
         }else{
@@ -414,7 +420,7 @@ setTimeout(function() {
         
 
     });
-    }, 250);
+    }, 350);
 })
 
 
@@ -585,7 +591,9 @@ const NewEmployeeRegister = async() => {
 }
 .logo{
   font-family: 'Inter Tight', sans-serif;
-  font-family: 'Orbitron', sans-serif;
+  font-size: 3rem;
+  left: 0rem;
+  /* font-family: 'Orbitron', sans-serif; */
 }
 
 @keyframes gradient {
@@ -672,6 +680,14 @@ visibility: hidden;
     visibility: hidden;
   }
 }
+
+@media screen and (max-width: 1024px){
+  .logo{
+    font-size: 1.5rem;
+  }
+}
+
+
 </style>
 
 

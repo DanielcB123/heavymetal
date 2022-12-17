@@ -23,7 +23,7 @@
                             </div>
                             <div class="flex w-full px-1 flex-col">
                                 <label class="block text-sm font-medium mb-1 text-gray-400" for="password">Phone Number</label>
-                                <input v-model="new_client.phone_number" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="tel" name="password" id="password">
+                                <input v-model="new_client.phone_number" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="tel" name="phone_number" id="phone_number">
                             </div>
                         </div>
 
@@ -49,11 +49,11 @@
                         <div class="flex justify-between">
                             <div class="flex w-full px-1 flex-col">
                                 <label class="block text-sm font-medium mb-1 text-gray-400" for="email">Password</label>
-                                <input v-model="new_client.password" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="email" name="email" id="email">
+                                <input v-model="new_client.password" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="password" name="password" id="password">
                             </div>
                             <div class="flex w-full px-1 flex-col">
                                 <label class="block text-sm font-medium mb-1 text-gray-400" for="password">Confirm Password</label>
-                                <input v-model="new_client.password_c" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="password" name="password" id="password">
+                                <input v-model="new_client.password_c" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="password" name="password_c" id="password_c">
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,9 @@ let errors = ref('');
 
 
 function submit(){
+    const token = localStorage.getItem("token");
     console.log(new_client);
+    console.log(token);
     // need to grab the token and get the user ad to get the companyID to add to the client table to identify what company the client is signed up for
 }
 
