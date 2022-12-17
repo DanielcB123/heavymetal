@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean('admin')->nullable();
             $table->boolean('personal_trainer')->nullable();
             $table->string('companyID')->nullable();
+            $table->string('token')->nullable();
             $table->string('companyName')->nullable();
             $table->rememberToken();
             $table->timestamps();

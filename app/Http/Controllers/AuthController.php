@@ -54,11 +54,12 @@ class AuthController extends Controller
             $user = User::create($input);
             $escapeChar = str_replace(':','',$user->companyName.date("Ymd").date("H:i:s"));
             $user->companyID = $escapeChar;
-            $user->save();
+            
     
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
             $success['name'] = $user->name;
-    
+            $user->token = $success['token'];
+            $user->save();
             $response = [
                 'success' => true,
                 'data' => $success,
@@ -82,11 +83,14 @@ class AuthController extends Controller
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
+            $user->token = $success['token'];
+            $user->save();
             $success['name'] = $user->firstName;
             $auth['admin'] = $user->admin;
             $auth['personal_trainer'] = $user->personal_trainer;
             $data = 'success fool';
             $output = $data;
+
             if (is_array($output))
                 $output = implode(',', $output);
         

@@ -306,9 +306,11 @@ import router from '../router/index';
 import ClientSignUp from '../components/newClientSignUp/clientSignUpMain.vue'
 
 
-onMounted((params) => {
-  console.log("inside landing view");
-  console.log(params);
+onMounted(() => {
+const token = localStorage.getItem("token");
+console.log('token: '+token);
+//  Daniel 12/16/22 use props to pass to child components the token as to get the user so I can get the user auth and user companyID to display to proper data
+
 })
 
 function testss(){
