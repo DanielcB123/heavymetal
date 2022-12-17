@@ -1,6 +1,6 @@
 # This is a SaaS built for Gyms and Personal Trainers
 
-
+## Installation
 to clone repo.
     - git clone <repo url>
     - composer install
