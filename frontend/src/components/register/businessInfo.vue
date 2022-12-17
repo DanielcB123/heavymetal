@@ -7,7 +7,7 @@
                 <div class="flex justify-center mb-0">
                     <div class="w-full flex flex-col pr-2">
                         <label class="mb-2 font-bold text-lg text-gray-900" for="first_name">Company</label>
-                        <input class="border py-2 px-3 text-grey-800" type="text" placeholder="First Name" id="firstName" v-model="form.CompanyName"><br/>
+                        <input class="border py-2 px-3 text-grey-800" type="text" placeholder="First Name" id="firstName" v-model="form.companyName"><br/>
                     </div>
                 </div>
 
@@ -52,7 +52,7 @@ import axios from 'axios';
 
 let form = reactive({
     location: 'business-next',
-    CompanyName: '',
+    companyName: '',
     Owner: '',
     email: '',
     password: '',

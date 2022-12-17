@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
 
@@ -33,7 +34,7 @@ class AuthController extends Controller
             'lastName' => 'required',
             'email' => 'required|email',
             'password' => 'required',
-            'c_password' => 'required|same:password'
+            'c_password' => 'required|same:password',
         ]);
 
         if($validator->fails()){
@@ -47,6 +48,9 @@ class AuthController extends Controller
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
         $user = User::create($input);
+        $escapeChar = str_replace(':','',$user->companyName.date("Ymd").date("H:i:s"));
+        $user->companyID = $escapeChar;
+        $user->save();
 
         $success['token'] = $user->createToken('MyApp')->plainTextToken;
         $success['name'] = $user->name;

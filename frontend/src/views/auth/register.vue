@@ -6,7 +6,7 @@
         <div class="sm:hidden w-screen flex justify-center h-20 mt-2 bg-slate-300 pl-1">
            <div id="mobile-bar1" @mouseover="changeColor1()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-50 text-xs"><p class="mobile-arrow-text">Personal</p></div>
            <div id="mobile-bar2" @mouseover="changeColor2()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-40 text-xs -ml-5"><p class="mobile-arrow-text">Company Info</p></div>
-           <div id="mobile-bar3" @mouseover="changeColor3()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-30 text-xs -ml-5"><p class="mobile-arrow-text">Payment</p></div>
+           <div id="mobile-bar3" @mouseover="changeColor3" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-30 text-xs -ml-5"><p class="mobile-arrow-text">Payment</p></div>
            <div id="mobile-bar4" @mouseover="changeColor4()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-20 text-xs -ml-5"><p class="mobile-arrow-text">Confirm</p></div>
            <div id="mobile-bar5" @mouseover="changeColor5()" class="bg-blue-500 w-3/12 h-12 bis-mobile-before z-10 text-xs -ml-5"><p class="mobile-arrow-text">Tutorial</p></div>
             <!-- <ul class="h-full flex justify-center items-center pl-12 bg-slate-300">
@@ -32,7 +32,7 @@
 
                 <li id="bar2" @mouseover="changeColor2" class="bis2 z-40  bg-neutral-300 py-1 w-3/12  -ml-16 flex justify-end pr-6"><p>Company Info</p></li>
 
-                <li id="bar3" @mouseover="changeColor3()" class="bis2 z-30 bg-neutral-300 py-1 w-3/12  border-black -ml-16 flex justify-end pr-10"><p>Payment Info</p></li>
+                <li id="bar3" @mouseover="changeColor3" class="bis2 z-30 bg-neutral-300 py-1 w-3/12  border-black -ml-16 flex justify-end pr-10"><p>Payment Info</p></li>
 
                 <li id="bar4" @mouseover="changeColor4()" class="bis2 z-20 bg-neutral-300 py-1 w-3/12  border-black -ml-14 flex justify-end pr-7"><p>Confirmation</p></li>
 
@@ -104,6 +104,9 @@ let form = reactive({
     email: '',
     password: '',
     c_password:'',
+    companyName:'',
+    companyID:'',
+    admin:'',
 });
 let error = ref('');
 
@@ -125,7 +128,7 @@ changeColor1();
 
 
 const submitSkip = async(param) => {
-    console.log("FORM HERE --> "+form.email+" "+param.password);
+    console.log("FORM HERE --> "+form.companyName);
     form.password = form.c_password = param.password;
     await axios.post('http://localhost:8000/api/client/register', form).then(res => {
         if(res.data.success){
@@ -140,23 +143,6 @@ const submitSkip = async(param) => {
         }
     });
 }
-
-
-// const submitSkip = async(param) => {
-//     console.log("name: "+form.CompanyName+"  pass"+param.password);
-//     await axios.post('http://localhost:8000/api/company/register', form).then(res => {
-//         if(res.data.success){
-//             // const useRouter = router();
-//             console.log('succ company')
-//             localStorage.setItem('token',res.data.data.token)
-//             router.push('landing')
-//         }else{
-//             console.log('err')
-//             error.value = res.data.message;
-
-//         }
-//     });
-// }
 
 
 
@@ -254,10 +240,11 @@ function changeColor2(dir){
 }
 
 function changeColor3(dir){
-    console.log("HERE");
+    console.log("before");
+    form.companyName    = dir.companyName;
     if(dir.firstName1 != '' && (dir.firstName1 != form.firstName2)){
-        console.log("ok ----> "+ dir.firstName1);
-        form.firstName2 = dir.firstName1;
+        console.log("compname ----> "+ form.companyName);
+        form.firstName2     = dir.firstName1;
     }
 
     if(progress.payment_flag){
