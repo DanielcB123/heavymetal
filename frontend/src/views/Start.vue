@@ -274,6 +274,7 @@ onMounted(() => {
 })
 
 // Need to clear input on error 10/26/22. Not dont yet!
+
 const login = async() => {
 	await axios.post('http://localhost:8000/api/client/login', form).then(res => {
 		if(res.data.success){
@@ -289,6 +290,26 @@ const login = async() => {
 	});
 	clearInput();
 }
+
+
+// function login(){
+// 	axios.post('http://localhost:8000/api/client/login', form).then(res => {
+// 		if(res.data.success){
+
+// 			localStorage.setItem('token',res.data.data.token)
+// 			router.push('landing',res.data.token)
+
+
+
+// 		}else{
+// 			error.value = res.data.message;
+// 			console.log(error.value);
+// 			clearInput();
+// 		}
+// 	});
+// 	clearInput();
+// }
+
 
 function clearInput(){
 	// this.form.email = "";

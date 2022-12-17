@@ -31,7 +31,7 @@ const open = ref(false);
   <main class="big-container">
     <div class="">
       
-      <NavBar @openNewClientSignUp="activeTab = 'ClientSignUp'" />
+      <NavBar :token="token.value" @openNewClientSignUp="activeTab = 'ClientSignUp'" />
     </div>
 
     <div class="out">
@@ -301,14 +301,17 @@ const open = ref(false);
 </template>
 
 <script setup>
-import { computed, onMounted, onUnmounted, ref } from "vue"
+import { computed, onMounted, onUnmounted, ref, reactive } from "vue"
 import router from '../router/index';
 import ClientSignUp from '../components/newClientSignUp/clientSignUpMain.vue'
 
+let token = reactive({
+    value: '',
+});
 
-onMounted(() => {
-const token = localStorage.getItem("token");
-console.log('token: '+token);
+onMounted(() => { 
+token.value = localStorage.getItem("token");
+console.log('token: '+token.value);
 //  Daniel 12/16/22 use props to pass to child components the token as to get the user so I can get the user auth and user companyID to display to proper data
 
 })

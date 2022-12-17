@@ -220,14 +220,14 @@
 
 
                     
-                    <p class="pl-2 flex items-center justify-center text-xs">Daniel Burgess</p>
+                    <p class="pl-2 flex items-center justify-center text-xs">{{current_user.firstName}} {{current_user.lastName}}</p>
                   </div>
                   <div class="group-hover:block rounded-b absolute hidden h-auto ml-4 profile-dd">
                     <ul class="top-0 w-40 bg-slate-800 shadow px-0 pt-2">
-                        <li class="py-1">
+                        <li v-if="current_user.admin" class="py-1">
                           <a class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 py-2 px-2 w-full cursor-pointer">
                           
-                            <div v-if="open.admin_access" @click="open.new_employee_modal = true" class="text-white flex" to="login">
+                            <div @click="open.new_employee_modal = true" class="text-white flex" to="login">
                               <p class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 w-full cursor-pointer">New Employee</p>
                             </div>
 
@@ -351,11 +351,18 @@
   </div>
 </template>
 <script setup>
-import { computed, onMounted, onUnmounted, ref, defineEmits, reactive} from "vue"
+import { computed, onMounted, onUnmounted, ref, defineEmits, reactive, defineProps} from "vue"
 import router from '../../router/index';
 import axios from 'axios'
 
 const emit = defineEmits(['openNewClientSignUp']);
+
+const props = defineProps({
+  token: {
+    type: String,
+    default: '',
+  }
+})
 
 let open = reactive({
     new_employee_modal:false,
@@ -373,6 +380,44 @@ let new_employee = reactive({
     companyID:'',
     admin:false,
 });
+
+let current_user = reactive({
+    firstName: '',
+    lastName: '',
+    admin:false,
+});
+
+
+
+onMounted(() => {
+setTimeout(function() {
+    const token = localStorage.getItem("token");
+
+
+    // const token = localStorage.getItem("token");
+    console.log('prop: '+token);
+    //  Daniel 12/16/22 use props to pass to child components the token as to get the user so I can get the user auth and user companyID to display to proper data
+    //  Create Controller function in laravel to get the user row from the datatable with the token to get the companyID and user auth(admin & personal trainer)
+    axios.get('http://localhost:8000/api/get-user', { params: { token: token } }).then(res => {
+      
+
+        if(res){
+            current_user.firstName = res.data[0].firstName;
+            current_user.lastName = res.data[0].lastName;
+            current_user.admin = res.data[0].admin;
+
+            // router.push('landing')
+        }else{
+            console.log('err')
+            error.value = res.data.message;
+        }
+        
+
+    });
+    }, 250);
+})
+
+
 
 const NewEmployeeRegister = async() => {
  

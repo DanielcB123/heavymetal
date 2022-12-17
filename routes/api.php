@@ -25,11 +25,14 @@ Route::get('/client/client-search', [ClientAPI::class, 'showClient']);
 // Route::post('/client/login',[AuthController::class, 'login']);
 Route::delete('/client/logout',[AuthController::class, 'logout']);
 // Route::post('/client/register',[AuthController::class, 'register']);
+// Route::get('/get-user',[AuthController::class, 'getUser']);
+
 
 
 Route::controller(AuthController::class)->group(function(){
     Route::post('/client/login','login');
     Route::post('/client/register','register');
+    Route::get('/get-user','getUser');
 });
 
 

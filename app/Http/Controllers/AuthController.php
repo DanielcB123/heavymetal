@@ -114,4 +114,17 @@ class AuthController extends Controller
             return response()->json($response);
         }
     }
+
+
+    public function getUser(Request $request){
+
+        // $user = User::where('token', $request->token)->get();
+        $user = DB::table('users')->where('token', $request->token)->get();
+
+
+        // $x = $request->token;
+        return $user;
+    }
+
+
 }
