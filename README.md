@@ -1,13 +1,13 @@
 # This is a SaaS built for Gyms and Personal Trainers
 
 ## Installation
-to clone repo.
-    - git clone <repo url>
-    - composer install
-    - cd frontend
-    - npm install & npm run dev
+to clone repo:
+```git clone
+composer install
+cd frontend
+npm install & npm run dev```
 
-create .env file and inside add to DB
-    - create .env file in root and copy all from .env.example and past in .env
+
+copy from .env.example and paste in newly created .env 
 
 
