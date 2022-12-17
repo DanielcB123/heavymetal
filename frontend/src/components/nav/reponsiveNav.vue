@@ -227,10 +227,10 @@
                   <div class="group-hover:block rounded-b absolute hidden h-auto ml-4 profile-dd">
                     <ul class="top-0 w-40 bg-slate-800 shadow px-0 pt-2">
                         <li v-if="current_user.admin" class="py-1">
-                          <a class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 py-2 px-2 w-full cursor-pointer">
+                          <a class="block text-slate-400 font-bold text-base hover:text-slate-100 border-slate-800 py-2 px-2 w-full cursor-pointer">
                           
                             <div @click="open.new_employee_modal = true" class="text-white flex" to="login">
-                              <p class="block text-slate-400 font-bold text-base hover:text-slate-100 border-slate-800 w-full cursor-pointer">New Employee</p>
+                              <p class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 w-full cursor-pointer">New Employee</p>
                             </div>
 
                             <Teleport to="body">

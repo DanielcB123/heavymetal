@@ -2,11 +2,12 @@
 
 ## Installation
 to clone repo:
-```git clone
+```
+git clone https://github.com/DanielcB123/heavymetal.git
 composer install
 cd frontend
-npm install & npm run dev```
-
+npm install & npm run dev
+```
 
 copy from .env.example and paste in newly created .env 
 
