@@ -306,6 +306,11 @@ import router from '../router/index';
 import ClientSignUp from '../components/newClientSignUp/clientSignUpMain.vue'
 
 
+onMounted((params) => {
+  console.log("inside landing view");
+  console.log(params);
+})
+
 function testss(){
   console.log("blwa");
 }

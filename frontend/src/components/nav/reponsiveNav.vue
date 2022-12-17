@@ -227,23 +227,32 @@
                         <li class="py-1">
                           <a class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 py-2 px-2 w-full cursor-pointer">
                           
-                            <div @click="open = true" class="text-white flex" to="login">
+                            <div v-if="open.admin_access" @click="open.new_employee_modal = true" class="text-white flex" to="login">
                               <p class="block text-slate-400 font-bold text-base hover:text-slate-100 hover:bg-slate-700 border-slate-800 w-full cursor-pointer">New Employee</p>
                             </div>
 
                             <Teleport to="body">
-                              <div v-if="open" class="flex justify-center fixed z-50 bg-opacity-70 bg-neutral-900 p-5 text-blue-500 w-100 h-full">
+                              <div v-if="open.new_employee_modal" class="flex justify-center fixed z-50 bg-opacity-70 bg-neutral-900 p-5 text-blue-500 w-100 h-full">
                                 <div class="h-2/3 sm:w-6/12 md:h-10/12 lg:w-4/12 m-auto rounded-lg bg-slate-100 p-3 bg-opacity-90">
                                   <form @submit.prevent="login" class="h-full align-center bg-opacity-90">
                                     
                                     <!-- <div class="w-full flex flex-col w-full h-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> -->
 
-  <form class="h-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-    <div class="mb-4">
-      <label class="block text-gray-700 text-sm font-bold mb-2" for="full_name">
-        Full Name
-      </label>
-      <input v-model="new_employee.full_name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="full_name" type="text" placeholder="Full Name">
+  <!-- <form class="h-full bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"> -->
+    <div class="mb-4 flex">
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="first_name">
+          First Name
+        </label>
+        <input v-model="new_employee.firstName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" placeholder="First Name">
+      </div>
+      <div>
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="last_name">
+          Last Name
+        </label>
+        <input v-model="new_employee.lastName" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="last_name" type="text" placeholder="Last Name">
+      </div>
+
     </div>
     <div class="mb-4">
       <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
@@ -265,25 +274,35 @@
         </label>
         <input v-model="new_employee.c_password" class="shadow appearance-none border border-red-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password_c" type="password" placeholder="">
       </div>
-      <div class="flex">
-        <label class="block text-gray-700 text-sm font-bold mb-2 pr-2" for="personal_trainer">
-          Personal Trainer
-        </label>
-        <input v-model="new_employee.personal_trainer" class="mb-2" id="personal_trainer" type="checkbox" placeholder="">
+      <div class="flex justify-between">
+        <div class="flex">
+          <label class="block text-gray-700 text-sm font-bold mb-2 pr-2" for="personal_trainer">
+            Personal Trainer
+          </label>
+          <input v-model="new_employee.personal_trainer" class="mb-2" id="personal_trainer" type="checkbox" value="true">
+        </div>
+
+        <div class="flex mr-36">
+          <label class="block text-gray-700 text-sm font-bold mb-2 pr-2" for="personal_trainer">
+            Admin
+          </label>
+          <input v-model="new_employee.admin" class="mb-2" id="personal_trainer" type="checkbox" value="true">
+        </div>
+
       </div>
     </div>
 
     
     <div class="p-10 mt-auto w-full flex justify-center p-2 mt-auto w-full">          
       <button @click="NewEmployeeRegister" type="button" class="w-1/3 rounded-md p-2 mb-2 bg-blue-500 hover:bg-blue-500 duration-100 text-white mr-5">Create User</button>
-      <button @click="open = false ;" type="button" class="w-1/3 rounded-md p-2 mb-2 bg-gray-300 hover:bg-gray-500 duration-100 text-gray-600">Cancel</button>
+      <button @click="open.new_employee_modal = false ;" type="button" class="w-1/3 rounded-md p-2 mb-2 bg-gray-300 hover:bg-gray-500 duration-100 text-gray-600">Cancel</button>
     </div>
 
     <!-- <div class="flex flex-col p-5 w-full h-full bg-sky-200">  
         <div class="p-10 mt-auto w-full bg-amber-300">Bottom</div>
     </div> -->
 
-  </form>
+  <!-- </form> -->
 
 
                                     <!-- </div> -->
@@ -334,29 +353,42 @@
 <script setup>
 import { computed, onMounted, onUnmounted, ref, defineEmits, reactive} from "vue"
 import router from '../../router/index';
-const open = ref(false);
+import axios from 'axios'
+
 const emit = defineEmits(['openNewClientSignUp']);
 
+let open = reactive({
+    new_employee_modal:false,
+    admin_access:false,
+});
+
 let new_employee = reactive({
-    full_name: '',
-    email:'',
-    password:'',
     personal_trainer:false,
+    firstName: '',
+    lastName: '',
+    email: '',
+    password:'',
+    c_password:'',
+    companyName:'',
+    companyID:'',
+    admin:false,
 });
 
 const NewEmployeeRegister = async() => {
-
+ 
   console.log(new_employee);
-    await axios.post('http://localhost:8000/api/client/register', form).then(res => {
+  open.new_employee_modal=false;
+    await axios.post('http://localhost:8000/api/client/register', new_employee).then(res => {
+      
         if(res.data.success){
             console.log('succ')
             localStorage.setItem('token',res.data.data.token)
-            router.push('landing')
+            // router.push('landing')
         }else{
             console.log('err')
             error.value = res.data.message;
-
         }
+        
     });
     
 }

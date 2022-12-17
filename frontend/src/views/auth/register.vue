@@ -106,7 +106,7 @@ let form = reactive({
     c_password:'',
     companyName:'',
     companyID:'',
-    admin:'',
+    admin:true,
 });
 let error = ref('');
 
@@ -128,7 +128,7 @@ changeColor1();
 
 
 const submitSkip = async(param) => {
-    console.log("FORM HERE --> "+form.companyName);
+    console.log(form);
     form.password = form.c_password = param.password;
     await axios.post('http://localhost:8000/api/client/register', form).then(res => {
         if(res.data.success){

@@ -29,39 +29,50 @@ class AuthController extends Controller
     // }
 
     public function register(Request $request){
-        $validator = Validator::make($request->all(),[
-            'firstName' => 'required',
-            'lastName' => 'required',
-            'email' => 'required|email',
-            'password' => 'required',
-            'c_password' => 'required|same:password',
-        ]);
+        // ddd($request);
+        if(auth('sanctum')->user() == NULL){
 
-        if($validator->fails()){
+
+            $validator = Validator::make($request->all(),[
+                'firstName' => 'required',
+                'lastName' => 'required',
+                'email' => 'required|email',
+                'password' => 'required',
+                'c_password' => 'required|same:password',
+            ]);
+    
+            if($validator->fails()){
+                $response = [
+                    'success' => false,
+                    'message' => $validator->errors()
+                ];
+                return response()->json($response, 400);
+            }
+    
+            $input = $request->all();
+            $input['password'] = bcrypt($input['password']);
+            $user = User::create($input);
+            $escapeChar = str_replace(':','',$user->companyName.date("Ymd").date("H:i:s"));
+            $user->companyID = $escapeChar;
+            $user->save();
+    
+            $success['token'] = $user->createToken('MyApp')->plainTextToken;
+            $success['name'] = $user->name;
+    
             $response = [
-                'success' => false,
-                'message' => $validator->errors()
+                'success' => true,
+                'data' => $success,
+                'message' => 'User registered successfully'
             ];
-            return response()->json($response, 400);
+    
+            return response()->json($response, 200);
+
+
+
+        }else{
+
         }
 
-        $input = $request->all();
-        $input['password'] = bcrypt($input['password']);
-        $user = User::create($input);
-        $escapeChar = str_replace(':','',$user->companyName.date("Ymd").date("H:i:s"));
-        $user->companyID = $escapeChar;
-        $user->save();
-
-        $success['token'] = $user->createToken('MyApp')->plainTextToken;
-        $success['name'] = $user->name;
-
-        $response = [
-            'success' => true,
-            'data' => $success,
-            'message' => 'User registered successfully'
-        ];
-
-        return response()->json($response, 200);
 
     }
 
@@ -71,8 +82,9 @@ class AuthController extends Controller
         if(Auth::attempt(['email'=>$request->email,'password'=>$request->password])){
             $user = Auth::user();
             $success['token'] = $user->createToken('MyApp')->plainTextToken;
-            $success['name'] = $user->name;
-        
+            $success['name'] = $user->firstName;
+            $auth['admin'] = $user->admin;
+            $auth['personal_trainer'] = $user->personal_trainer;
             $data = 'success fool';
             $output = $data;
             if (is_array($output))
@@ -86,7 +98,8 @@ class AuthController extends Controller
         $response = [
             'success' => true,
             'data' => $success,
-            'message' => 'User login successfully'
+            'message' => 'User login successfully',
+            'auth'=> $auth,
         ];
         return response()->json($response, 200);
         }else{

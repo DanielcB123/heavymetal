@@ -18,7 +18,7 @@
 					<h3 class="flex justify-center bg-slate-500 bg-opacity-80 p-2 text-white text-2xl">Login</h3>
 
 					<div class="grid place-items-center">
-						<p v-if="error" style="color:red">{{error}}</p>
+						<!-- <p v-if="error" style="color:red">{{error}}</p> -->
 						<!-- <input type="email" placeholder="Business ID" id="email" class="w-3/4 rounded-sm py-2 px-3"><br/> -->
 						<input type="email" placeholder="Email" id="email" v-model="form.email" class="w-3/4 rounded-sm py-2 px-3"><br/>
 						<input type="password" placeholder="Password" id="password" v-model="form.password" class="w-3/4 rounded-sm py-2 px-3"><br/>
@@ -261,6 +261,9 @@ let form = reactive({
 	password: ''
 });
 
+let error = reactive({
+	value: '',
+});
 
 const activeTab = ref('');
 const open = ref(false);
@@ -275,11 +278,12 @@ const login = async() => {
 	await axios.post('http://localhost:8000/api/client/login', form).then(res => {
 		if(res.data.success){
 			localStorage.setItem('token',res.data.data.token)
-			router.push('landing')
+			// console.log(res.data);
+			router.push('landing',res.data)
 
 		}else{
 			error.value = res.data.message;
-			// console.log("here");
+			console.log(error.value);
 			clearInput();
 		}
 	});
@@ -287,8 +291,8 @@ const login = async() => {
 }
 
 function clearInput(){
-	this.form.email = "";
-	this.form.password = "";
+	// this.form.email = "";
+	// this.form.password = "";
 }
 
 // HAMBURGER MENU MOBILE FOTTER NAV
