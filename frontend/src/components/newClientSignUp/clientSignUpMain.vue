@@ -1,29 +1,66 @@
 <template>
 
-        <div class="w-screen h-screen flex justify-start main-background">
-        <div class="w-7/12 h-4/6 bg-opacity-0 rounded-sm shadow-2xl mt-0 p-5">
+    <div class="w-screen h-screen flex justify-start main-background">
+        <div class="w-full ml-5 sm:w-7/12 sm:ml-0 h-4/6 bg-opacity-0 rounded-sm mt-0 p-4">
             <h1 class="block w-full text-center text-gray-400 text-2xl font-bold mb-6">New Client Sign-up</h1>
-            <form action="/" method="post">
-                <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-400" for="first_name">First Name</label>
-                    <input class="border py-2 px-3 text-grey-800" type="text" name="first_name" id="first_name">
+            <form class="" action="/" method="post">
+                <div x-show="card">
+                    <div class="space-y-4">
+                        <div class="flex justify-between">
+                            <div class="flex w-full px-1 flex-col">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="first_name">First Name</label>
+                                <input v-model="new_client.firstName" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="text" name="first_name" id="first_name">
+                            </div>
+                            <div class="flex w-full px-1 flex-col">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="last_name">Last Name</label>
+                                <input v-model="new_client.lastName" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="text" name="last_name" id="last_name">
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="flex w-full px-1 flex-col">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="email">Email</label>
+                                <input v-model="new_client.email" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="email" name="email" id="email">
+                            </div>
+                            <div class="flex w-full px-1 flex-col">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="password">Phone Number</label>
+                                <input v-model="new_client.phone_number" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="tel" name="password" id="password">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium mb-1 text-gray-400" for="card-name">Name on Card <span class="text-red-500">*</span></label>
+                            <input v-model="new_client.payment_name_on_card" id="card-name" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="text" placeholder="John Doe" />
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-1 text-gray-400" for="card-nr">Card Number <span class="text-red-500">*</span></label>
+                            <input v-model="new_client.payment_card_number" id="card-nr" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="text" placeholder="1234 1234 1234 1234" />
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-1 px-1">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="card-expiry">Expiry Date <span class="text-red-500">*</span></label>
+                                <input v-model="new_client.payment_exp_date" id="card-expiry" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="text" placeholder="MM/YY" />
+                            </div>
+                            <div class="flex-1 px-1">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="card-cvc">CVC <span class="text-red-500">*</span></label>
+                                <input v-model="new_client.payment_cvc" id="card-cvc" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="text" placeholder="CVC" />
+                            </div>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="flex w-full px-1 flex-col">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="email">Password</label>
+                                <input v-model="new_client.password" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="email" name="email" id="email">
+                            </div>
+                            <div class="flex w-full px-1 flex-col">
+                                <label class="block text-sm font-medium mb-1 text-gray-400" for="password">Confirm Password</label>
+                                <input v-model="new_client.password_c" class="text-sm text-gray-200 bg-gray-500 bg-opacity-30 border rounded leading-5 py-2 px-3 border-gray-200 hover:border-gray-300 focus:border-indigo-300 shadow-sm placeholder-gray-400 focus:ring-0 w-full" type="password" name="password" id="password">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-400" for="last_name">Last Name</label>
-                    <input class="border py-2 px-3 text-grey-800" type="text" name="last_name" id="last_name">
+                <div class="py-3 flex">
+                    <button class="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto px-4 py-2 rounded" type="button" @click="submit">Sumbit</button>
                 </div>
-                <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-400" for="email">Email</label>
-                    <input class="border py-2 px-3 text-grey-800" type="email" name="email" id="email">
-                </div>
-                <div class="flex flex-col mb-4">
-                    <label class="mb-2 font-bold text-lg text-gray-400" for="password">Phone Number</label>
-                    <input class="border py-2 px-3 text-grey-800" type="password" name="password" id="password">
-                </div>
-                
-                <div class="flex">
-                    <button class="block bg-teal-400 hover:bg-teal-600 text-white uppercase text-lg mx-auto p-4 rounded" type="button" @click="btnClick('prev')">Prev</button>
-                    <button class="block bg-blue-400 hover:bg-blue-600 text-white uppercase text-lg mx-auto p-4 rounded" type="button" @click="btnClick('skip')">Skip</button>                </div>
             </form>
         </div>
     </div>
@@ -45,21 +82,17 @@ import axios from 'axios';
 
 const activeTab = ref('');
 const emit = defineEmits(['next', 'prev','skip'])
-function btnClick(param) {
-    
 
-    if(param == 'prev'){
-        emit('prev')
-    }
-    if(param == 'skip'){
-        emit('skip')
-    }
-}
 
-let form = reactive({
+let new_client = reactive({
     firstName: '',
     lastName: '',
     email: '',
+    phone_number: '',
+    payment_card_number: '',
+    payment_name_on_card: '',
+    payment_exp_date: '',
+    payment_cvc: '',
     password: '',
     c_password:'',
 });
@@ -67,7 +100,10 @@ let errors = ref('');
 
 
 
-
+function submit(){
+    console.log(new_client);
+    // need to grab the token and get the user ad to get the companyID to add to the client table to identify what company the client is signed up for
+}
 
 
 
