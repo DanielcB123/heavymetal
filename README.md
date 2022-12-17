@@ -1,4 +1,4 @@
-# This is a saas
+# This is a SaaS built for Gyms and Personal Trainers
 
 
 to clone repo.
